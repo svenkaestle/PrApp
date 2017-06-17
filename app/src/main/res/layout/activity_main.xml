@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.svenkaestle.prapp.MainActivity">
+    android:background="@color/white">
 
-    <CalendarView
+    <TextView
+        android:id="@+id/safety"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/safety"
+        android:textSize="35sp"
+        android:textAlignment="center"
+        android:textColor="@color/white"/>
+
+    <com.imanoweb.calendarview.CustomCalendarView
         android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="16dp" />
-</android.support.constraint.ConstraintLayout>
+        android:background="@color/white"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_below="@+id/safety"/>
+
+    <TextView
+        android:id="@+id/stock"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="35sp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:layout_marginBottom="16dp"
+        android:layout_alignParentBottom="true"/>
+
+
+
+
+
+</RelativeLayout>
