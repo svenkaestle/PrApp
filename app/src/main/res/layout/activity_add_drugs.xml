@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/global_margin">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/medicationNameTextView"
+        android:layout_alignParentTop="true"
+        android:text="@string/medication_name"
+        android:textSize="@dimen/global_form_text_size"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/medicationNameEditView"
+        android:layout_below="@id/medicationNameTextView"
+        android:text="Truvada"
+        android:textAlignment="center"
+        android:textSize="@dimen/edit_text_size"
+        android:layout_marginBottom="@dimen/global_margin"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/medicationNumberTextView"
+        android:layout_below="@id/medicationNameEditView"
+        android:text="@string/medication_number"
+        android:textSize="@dimen/global_form_text_size"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/decreaseMedicationNumberButton"
+        android:layout_below="@id/medicationNumberTextView"
+        android:text="-"
+        android:textSize="@dimen/global_form_text_size"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/increaseMedicationNumberButton"
+        android:layout_below="@id/medicationNumberTextView"
+        android:layout_alignParentRight="true"
+        android:text="+"
+        android:textSize="@dimen/global_form_text_size"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/medicationNumberEditView"
+        android:layout_below="@id/medicationNumberTextView"
+        android:layout_toRightOf="@id/decreaseMedicationNumberButton"
+        android:layout_toLeftOf="@id/increaseMedicationNumberButton"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="@dimen/global_form_text_size"
+        android:layout_marginBottom="@dimen/global_margin"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/medicationSourceTextView"
+        android:layout_below="@id/medicationNumberEditView"
+        android:text="@string/medication_source"
+        android:textSize="@dimen/global_form_text_size"/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/addMedicationButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Add medication"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/medicationSourceEditView"
+        android:layout_below="@id/medicationSourceTextView"
+        android:layout_above="@id/addMedicationButton"
+        android:layout_marginBottom="@dimen/global_margin"
+        android:text="Lorem ipsum"
+        android:textSize="@dimen/edit_text_size"/>
+
+</RelativeLayout>

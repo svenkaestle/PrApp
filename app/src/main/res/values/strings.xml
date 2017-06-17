@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">PrApp</string>
     <string name="safety">SAFETY</string>
+    <string name="medication_name">Medication name</string>
+    <string name="medication_number">Number of tablets</string>
+    <string name="medication_source">Medication source</string>
 </resources>
