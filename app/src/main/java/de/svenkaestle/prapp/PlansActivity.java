@@ -1,13 +1,10 @@
 package de.svenkaestle.prapp;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.DatePicker;
 import android.widget.EditText;
 
 import java.util.Calendar;
@@ -22,55 +19,10 @@ public class PlansActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plans);
 
-        startCalendar = Calendar.getInstance();
+        EditText planningStartDateEditText = (EditText) findViewById(R.id.planningStartDateEditText );
 
-        startYear = startCalendar.get(Calendar.YEAR);
-        startMonth = startCalendar.get(Calendar.MONTH);
-        startDay = startCalendar.get(Calendar.DAY_OF_MONTH);
-
-        final EditText planningStartDateEditText = (EditText) findViewById(R.id.planningStartDateEditText );
-
-        final DatePickerDialog datePickerDialog = new DatePickerDialog(PlansActivity.this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                showDate(planningStartDateEditText, year, month+1, day);
-            }
-        }, startYear, startMonth, startDay);
-
-        showDate(planningStartDateEditText, startYear, startMonth+1, startDay);
-
-        planningStartDateEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                datePickerDialog.show();
-            }
-        });
-
-        // TODO: Relocate into own class to avoid boilerplate
-
-        endCalendar = Calendar.getInstance();
-
-        endYear = startCalendar.get(Calendar.YEAR);
-        endMonth = startCalendar.get(Calendar.MONTH);
-        endDay = startCalendar.get(Calendar.DAY_OF_MONTH);
-
-        final EditText planningEndDateEditText = (EditText) findViewById(R.id.planningEndDateEditText );
-
-        final DatePickerDialog endDatePickerDialog = new DatePickerDialog(PlansActivity.this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                showDate(planningEndDateEditText, year, month+1, day);
-            }
-        }, endYear, endMonth, endDay);
-
-        showDate(planningEndDateEditText, endYear, endMonth+1, endDay);
-
-        planningEndDateEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                datePickerDialog.show();
-            }
-        });
+        editTextCalendar startCalendarDialog = new editTextCalendar(PlansActivity.this, planningStartDateEditText);
+        editTextCalendar endCalendarDialog = new editTextCalendar(PlansActivity.this, planningStartDateEditText);
     }
 
     @Override
