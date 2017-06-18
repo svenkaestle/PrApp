@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    tools:context="de.svenkaestle.prapp.EncounterActivity">
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/global_margin">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/encounterDateTextView"
+        android:layout_alignParentTop="true"
+        android:text="@string/encounter_date"
+        android:textSize="@dimen/global_form_text_size"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/encounterDatePicker"
+        android:layout_below="@id/encounterDateTextView"
+        android:textAlignment="center"
+        android:textSize="@dimen/edit_text_size"
+        android:layout_marginBottom="@dimen/global_margin"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/encounterRiskTextView"
+        android:layout_below="@id/encounterDatePicker"
+        android:text="@string/encounter_risk"
+        android:textSize="@dimen/global_form_text_size"
+        android:layout_marginBottom="@dimen/global_margin"/>
+
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/encounterRiskSpinner"
+        android:layout_below="@id/encounterRiskTextView"
+        android:textSize="@dimen/edit_text_size"
+        android:layout_marginBottom="@dimen/global_margin"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/encounterPartnerNameTextView"
+        android:layout_below="@id/encounterRiskSpinner"
+        android:text="@string/partner_name"
+        android:textSize="@dimen/global_form_text_size"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/addMedicationButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Save"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/encounterPartnerNameEditView"
+        android:layout_below="@id/encounterPartnerNameTextView"
+        android:layout_marginBottom="@dimen/global_margin"
+        android:textSize="@dimen/edit_text_size" />
+
+</RelativeLayout>
