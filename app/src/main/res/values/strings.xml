@@ -7,4 +7,16 @@
     <string name="topMenuLinks">Links</string>
     <string name="topMenuDisclaimer">Disclaimer</string>
     <string name="topMenuContact">Contact</string>
+    <string name="encounter_date">Date</string>
+    <string name="encounter_risk">Risk estimate</string>
+    <string name="partner_name">Partner\'s name</string>
+
+    <!-- Spinner in encounters screen -->
+    <string-array name="encounterRiskEstimate">
+        <item>Please enter...</item>
+        <item>No risk</item>
+        <item>Low risk</item>
+        <item>Medium risk</item>
+        <item>High risk</item>
+    </string-array>
 </resources>
