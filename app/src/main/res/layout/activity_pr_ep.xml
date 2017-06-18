@@ -48,7 +48,6 @@
         android:layout_below="@id/prepTimePicker"
         android:text="@string/prep_taken"
         android:textSize="@dimen/edit_text_size"
-        android:textAlignment="center"
         android:layout_marginTop="@dimen/global_margin"/>
 
     <Button

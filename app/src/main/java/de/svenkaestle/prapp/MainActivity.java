@@ -11,17 +11,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.imanoweb.calendarview.CalendarListener;
 import com.imanoweb.calendarview.CustomCalendarView;
 
-import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import de.svenkaestle.prapp.Helper.DataSource;
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
@@ -132,6 +131,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeCustomCalendar() {
         CustomCalendarView calendarView = (CustomCalendarView) findViewById(R.id.calendarView);
+
+        //Initialize calendar with date
+        Calendar currentCalendar = Calendar.getInstance(Locale.getDefault());
+
+        //Show Monday as first date of week
+        calendarView.setFirstDayOfWeek(Calendar.MONDAY);
+
+        //Show/hide overflow days of a month
+        calendarView.setShowOverflowDate(false);
+
+        //call refreshCalendar to update calendar the view
+        calendarView.refreshCalendar(currentCalendar);
+
         calendarView.setCalendarListener(new CalendarListener() {
             @Override
             public void onDateSelected(Date date) {
@@ -144,10 +156,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // TODO DECORATOR!!
-//        List decorators = new ArrayList<>();
-//        decorators.add(new );
-//        calendarView.setDecorators(decorators);
-//        calendarView.refreshCalendar(currentCalendar);
 
     } // end initializeCustomCalendar
 
