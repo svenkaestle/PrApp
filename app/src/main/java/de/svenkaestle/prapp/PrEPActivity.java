@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,12 +24,16 @@ import java.util.Calendar;
 import java.util.Formatter;
 import java.util.Locale;
 
+import de.svenkaestle.prapp.Helper.DataSource;
+
 public class PrEPActivity extends AppCompatActivity {
 
     private Calendar calendar;
     private int year, month, day, hour, minute;
     private Button btnCancel;
     private Button btnOk;
+
+    private DataSource dataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +94,22 @@ public class PrEPActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.d("PrEPActivity", "Die Datenquelle wird geöffnet.");
+        dataSource.open();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        Log.d("PrEPActivity", "Die Datenquelle wird geschlossen.");
+        dataSource.close();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.top_menu, menu);
         return true;
@@ -124,6 +145,7 @@ public class PrEPActivity extends AppCompatActivity {
     }
 
     private void initializeButtons() {
+        dataSource = new DataSource(this);
         btnCancel = (Button) findViewById(R.id.prepCANCEL);
         btnOk = (Button) findViewById(R.id.prepOK);
 
@@ -141,7 +163,8 @@ public class PrEPActivity extends AppCompatActivity {
                 EditText date = (EditText) findViewById(R.id.prepDatePicker);
                 EditText time = (EditText) findViewById(R.id.prepTimePicker);
 
-                Toast.makeText(getApplicationContext(), "Date: " + date.getText() + " Time: " + time.getText(), Toast.LENGTH_SHORT).show();
+                dataSource.createPrEPObject(date.getText().toString(), time.getText().toString());
+
                 finish();
             }
         });
