@@ -7,9 +7,11 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,12 +19,19 @@ import android.widget.Toast;
 import com.imanoweb.calendarview.CalendarListener;
 import com.imanoweb.calendarview.CustomCalendarView;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import de.svenkaestle.prapp.Helper.DataSource;
+import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final int STOCK = 10;
     public static final Boolean safety = true;
+
+    private DataSource dataSource;
 
 
     @Override
@@ -35,7 +44,57 @@ public class MainActivity extends AppCompatActivity {
         initializeStock();
         initializeBottomBar();
 
+        PrEPObject prep = new PrEPObject(1, "2/3/2012", "12:23");
+        Log.d("MainActivity", prep.toString());
+
+        Log.d("MainActivity", "Das Datenquellen-Objekt wird angelegt.");
+        dataSource = new DataSource(this);
+
+//        PrEPObject prEPObject = dataSource.createPrEPObject("DATE!", "TIME!2");
+
+
+
+
     } // end onCreate
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.d("MainActivity", "Die Datenquelle wird geöffnet.");
+        dataSource.open();
+
+        Log.d("MainActivity", "Folgende Einträge sind in der Datenbank vorhanden:");
+        showAllListEntries();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        Log.d("MainActivity", "Die Datenquelle wird geschlossen.");
+        dataSource.close();
+    }
+
+
+    private void showAllListEntries () {
+        List<PrEPObject> prEPObjectList = dataSource.getAllPrEPObjects();
+
+//        Vorlage
+//        ArrayAdapter<PrEPObject> shoppingMemoArrayAdapter = new ArrayAdapter<>(
+//                this,
+//                android.R.layout.simple_list_item_multiple_choice,
+//                shoppingMemoList);
+//
+//        ListView shoppingMemosListView = (ListView) findViewById(R.id.listview_shopping_memos);
+//        shoppingMemosListView.setAdapter(shoppingMemoArrayAdapter);
+
+        for (PrEPObject prep : prEPObjectList) {
+            Log.d("ITEM", prep.toString());
+        }
+
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -81,6 +140,12 @@ public class MainActivity extends AppCompatActivity {
             public void onMonthChanged(Date date) {
             }
         });
+
+        // TODO DECORATOR!!
+//        List decorators = new ArrayList<>();
+//        decorators.add(new );
+//        calendarView.setDecorators(decorators);
+//        calendarView.refreshCalendar(currentCalendar);
 
     } // end initializeCustomCalendar
 
