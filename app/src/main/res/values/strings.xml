@@ -28,4 +28,36 @@
         <item>Medium risk</item>
         <item>High risk</item>
     </string-array>
+
+    <!-- Spinners on screenings screen -->
+    <string-array name="HIV">
+        <item>Not done</item>
+        <item>Pos./Reactive</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string-array name="GO">
+        <item>Not done</item>
+        <item>Positive</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string-array name="CT">
+        <item>Not done</item>
+        <item>Positive</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string-array name="SY">
+        <item>Not done</item>
+        <item>Positive</item>
+        <item>Unclear</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string-array name="HCV">
+        <item>Not done</item>
+        <item>Pos./Reactive</item>
+        <item>Negative</item>
+    </string-array>
 </resources>

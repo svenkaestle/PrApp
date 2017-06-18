@@ -60,7 +60,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/textView2"
         android:layout_toEndOf="@+id/textView2"
-        android:textAlignment="textEnd" />
+        android:textAlignment="viewEnd" />
 
     <TextView
         android:id="@+id/textView4"
