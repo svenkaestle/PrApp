@@ -123,8 +123,10 @@ public class MainActivity extends AppCompatActivity {
         TextView textViewSafety = (TextView) findViewById(R.id.safety);
         if (safety) {
             textViewSafety.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.safety_green));
+            textViewSafety.setText("Have fun");
         } else {
             textViewSafety.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.safety_red));
+            textViewSafety.setText("Not safe");
         }
     } // end initializeSafety
 

@@ -20,7 +20,8 @@
         android:layout_marginBottom="@dimen/global_margin"
         android:editable="false"
         android:textAlignment="center"
-        android:textSize="@dimen/edit_text_size" />
+        android:textSize="@dimen/edit_text_size"
+        android:focusable="false"/>
 
     <TextView
         android:id="@+id/prepTimeTextView"
@@ -39,7 +40,8 @@
         android:editable="false"
         android:inputType="none"
         android:textAlignment="center"
-        android:textSize="@dimen/edit_text_size" />
+        android:textSize="@dimen/edit_text_size"
+        android:focusable="false"/>
 
     <TextView
         android:id="@+id/prepTaken"

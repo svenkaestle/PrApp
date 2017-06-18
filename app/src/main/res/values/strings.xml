@@ -17,6 +17,8 @@
     <string name="CANCEL">CANCEL</string>
     <string name="planning_end_date">End date</string>
     <string name="planning_description">Description</string>
+    <string name="screening_time">Time</string>
+    <string name="screening_reason">Tests</string>
 
     <!-- Spinner in encounters screen -->
     <string-array name="encounterRiskEstimate">
@@ -25,5 +27,37 @@
         <item>Low risk</item>
         <item>Medium risk</item>
         <item>High risk</item>
+    </string-array>
+
+    <!-- Spinners on screenings screen -->
+    <string-array name="HIV">
+        <item>Not done</item>
+        <item>Pos./Reactive</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string-array name="GO">
+        <item>Not done</item>
+        <item>Positive</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string-array name="CT">
+        <item>Not done</item>
+        <item>Positive</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string-array name="SY">
+        <item>Not done</item>
+        <item>Positive</item>
+        <item>Unclear</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string-array name="HCV">
+        <item>Not done</item>
+        <item>Pos./Reactive</item>
+        <item>Negative</item>
     </string-array>
 </resources>
