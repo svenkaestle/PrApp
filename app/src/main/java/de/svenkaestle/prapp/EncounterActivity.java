@@ -1,19 +1,31 @@
 package de.svenkaestle.prapp;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.util.Calendar;
+
 public class EncounterActivity extends AppCompatActivity {
+
+    private Calendar calendar;
+    private int year, month, day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encounter);
+
+
+        // SPINNER
 
         final Spinner encounterRiskEstimateSpinner = (Spinner) findViewById(R.id.encounterRiskSpinner);
 
@@ -23,40 +35,31 @@ public class EncounterActivity extends AppCompatActivity {
         encounterRiskEstimateSpinner.setAdapter(encounterRiskEstimateSpinnerAdapter);
 
 
-        /*
-        Calendar myCalendar = Calendar.getInstance();
+        // CALENDAR
 
-        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+        calendar = Calendar.getInstance();
 
-                @Override
-                public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                      int dayOfMonth) {
-                    myCalendar.set(Calendar.YEAR, year);
-                    myCalendar.set(Calendar.MONTH, monthOfYear);
-                    myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                    updateLabel();
-                }
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        };
+        final EditText encounterDateEditText = (EditText) findViewById(R.id.encounterDatePicker);
 
-        edittext.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // TODO Auto-generated method stub
-                    new DatePickerDialog(classname.this, date, myCalendar
-                            .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                            myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-                }
+        final DatePickerDialog datePickerDialog = new DatePickerDialog(EncounterActivity.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                showDate(encounterDateEditText, year, month+1, day);
+            }
+        }, year, month, day);
+
+        showDate(encounterDateEditText, year, month+1, day);
+
+        encounterDateEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePickerDialog.show();
+            }
         });
-
-        private void updateLabel() {
-
-            String myFormat = "MM/dd/yy"; //In which you need put here
-            SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-
-            edittext.setText(sdf.format(myCalendar.getTime()));
-        }
-        */
     }
 
     @Override
@@ -83,5 +86,8 @@ public class EncounterActivity extends AppCompatActivity {
         }
     }
 
-
+    private void showDate(EditText editText, int year, int month, int day) {
+        editText.setText(new StringBuilder().append(day).append(".")
+                .append(month).append(".").append(year));
+    }
 }

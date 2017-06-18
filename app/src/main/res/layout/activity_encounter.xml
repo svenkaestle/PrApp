@@ -13,13 +13,14 @@
         android:textSize="@dimen/global_form_text_size"/>
 
     <EditText
+        android:id="@+id/encounterDatePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/encounterDatePicker"
         android:layout_below="@id/encounterDateTextView"
+        android:layout_marginBottom="@dimen/global_margin"
+        android:editable="false"
         android:textAlignment="center"
-        android:textSize="@dimen/edit_text_size"
-        android:layout_marginBottom="@dimen/global_margin"/>
+        android:textSize="@dimen/edit_text_size" />
 
     <TextView
         android:layout_width="match_parent"
@@ -64,5 +65,7 @@
         android:layout_below="@id/encounterPartnerNameTextView"
         android:layout_marginBottom="@dimen/global_margin"
         android:textSize="@dimen/edit_text_size" />
+
+
 
 </RelativeLayout>
