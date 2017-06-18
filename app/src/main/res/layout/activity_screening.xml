@@ -1,9 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    tools:context="de.svenkaestle.prapp.ScreeningActivity">
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/global_margin">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/screeningDateTextView"
+        android:layout_alignParentTop="true"
+        android:text="@string/encounter_date"
+        android:textSize="@dimen/global_form_text_size"/>
+
+    <EditText
+        android:id="@+id/screeningDateEditView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/screeningDateTextView"
+        android:layout_marginBottom="@dimen/global_margin"
+        android:editable="false"
+        android:textAlignment="center"
+        android:textSize="@dimen/edit_text_size" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/screeningReasonTextView"
+        android:layout_below="@id/screeningDateEditView"
+        android:text="@string/screening_reason"
+        android:textSize="@dimen/global_form_text_size"
+        android:layout_marginBottom="@dimen/global_margin"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/addPlanButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Save"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/screeningReasonTextView"
+        android:text="HIV" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2"
+        android:textAlignment="textEnd" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/spinner2"
+        android:layout_marginTop="14dp"
+        android:text="Gonorrhea" />
+
+    <Spinner
+        android:id="@+id/spinner4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/spinner4"
+        android:layout_marginTop="15dp"
+        android:text="Chlamydia" />
+
+    <Spinner
+        android:id="@+id/spinner5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_toEndOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="Syphilis"
+        android:layout_below="@+id/spinner5"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:id="@+id/spinner6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/spinner6"
+        android:layout_marginTop="11dp"
+        android:text="Hepatitis C" />
+
+    <Spinner
+        android:id="@+id/spinner7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/spinner5"
+        android:layout_alignTop="@+id/textView7" />
+
+</RelativeLayout>

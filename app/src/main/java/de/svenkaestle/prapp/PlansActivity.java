@@ -48,9 +48,4 @@ public class PlansActivity extends AppCompatActivity {
                 return true;
         }
     }
-
-    private void showDate(EditText editText, int year, int month, int day) {
-        editText.setText(new StringBuilder().append(day).append(".")
-                .append(month).append(".").append(year));
-    }
 }

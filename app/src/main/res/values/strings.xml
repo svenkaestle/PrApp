@@ -17,6 +17,8 @@
     <string name="CANCEL">CANCEL</string>
     <string name="planning_end_date">End date</string>
     <string name="planning_description">Description</string>
+    <string name="screening_time">Time</string>
+    <string name="screening_reason">Tests</string>
 
     <!-- Spinner in encounters screen -->
     <string-array name="encounterRiskEstimate">
