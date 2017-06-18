@@ -4,4 +4,7 @@
     <string name="medication_name">Medication name</string>
     <string name="medication_number">Number of tablets</string>
     <string name="medication_source">Medication source</string>
+    <string name="topMenuLinks">Links</string>
+    <string name="topMenuDisclaimer">Disclaimer</string>
+    <string name="topMenuContact">Contact</string>
 </resources>

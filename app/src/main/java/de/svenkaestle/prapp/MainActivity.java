@@ -7,6 +7,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     public static final int STOCK = 10;
-    public static final Boolean safety = false;
+    public static final Boolean safety = true;
 
 
     @Override
@@ -35,6 +36,29 @@ public class MainActivity extends AppCompatActivity {
         initializeBottomBar();
 
     } // end onCreate
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.top_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_links:
+                startActivity(new Intent(getApplicationContext(), LinksActivity.class));
+                return true;
+            case R.id.menu_disclaimer:
+                startActivity(new Intent(getApplicationContext(), DisclaimerActivity.class));
+                return true;
+            case R.id.menu_contact:
+                startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+                return true;
+            default:
+                return true;
+        }
+    }
 
     private void initializeSafety() {
         TextView textViewSafety = (TextView) findViewById(R.id.safety);
@@ -64,9 +88,10 @@ public class MainActivity extends AppCompatActivity {
         TextView textViewStock = (TextView) findViewById(R.id.stock);
         textViewStock.setText("Stock: " + STOCK);
         if (STOCK > 5) {
-            textViewStock.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.black));
+            textViewStock.setVisibility(View.INVISIBLE);
         } else {
             textViewStock.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.safety_red));
+            textViewStock.setVisibility(View.VISIBLE);
         }
     } // end initializeStock
 
@@ -78,18 +103,19 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.itemPrep:
                         startActivity(new Intent(getApplicationContext(), PrEPActivity.class));
-                        break;
+                        return true;
                     case R.id.itemStock:
                         startActivity(new Intent(getApplicationContext(), AddDrugsActivity.class));
-                        break;
+                        return true;
                     case R.id.itemScreening:
                         startActivity(new Intent(getApplicationContext(), ScreeningActivity.class));
-                        break;
+                        return true;
 //                    case R.id.itemLinks:
 //                        startActivity(new Intent(getApplicationContext(), LinksActivity.class));
 //                        break;
+                    default:
+                        return true;
                 }
-                return true;
             }
         });
 

@@ -22,22 +22,44 @@
         <activity
             android:name=".AddDrugsActivity"
             android:label="Medication"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".EncounterActivity"
             android:label="Encounters"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PlansActivity"
             android:label="Planning"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ScreeningActivity"
             android:label="Screening"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".LinksActivity" />
-        <activity android:name=".PrEPActivity" />
-        <activity android:name=".ContactActivity"></activity>
+        <activity
+            android:name=".LinksActivity"
+            android:label="Links"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PrEPActivity"
+            android:label="PrEP"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ContactActivity"
+            android:label="Contact us"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".DisclaimerActivity"
+            android:label="Disclaimer"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
