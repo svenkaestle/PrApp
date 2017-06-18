@@ -19,10 +19,11 @@ public class PlansActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plans);
 
-        EditText planningStartDateEditText = (EditText) findViewById(R.id.planningStartDateEditText );
+        EditText planningStartDateEditText = (EditText) findViewById(R.id.planningStartDateEditText);
+        EditText planningEndDateEditText = (EditText) findViewById(R.id.planningEndDateEditText);
 
         EditTextCalendar startCalendarDialog = new EditTextCalendar(PlansActivity.this, planningStartDateEditText);
-        EditTextCalendar endCalendarDialog = new EditTextCalendar(PlansActivity.this, planningStartDateEditText);
+        EditTextCalendar endCalendarDialog = new EditTextCalendar(PlansActivity.this, planningEndDateEditText);
     }
 
     @Override
