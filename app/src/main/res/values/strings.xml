@@ -10,6 +10,8 @@
     <string name="encounter_date">Date</string>
     <string name="encounter_risk">Risk estimate</string>
     <string name="partner_name">Partner\'s name</string>
+    <string name="planning_end_date">End date</string>
+    <string name="planning_description">Description</string>
 
     <!-- Spinner in encounters screen -->
     <string-array name="encounterRiskEstimate">
