@@ -12,13 +12,13 @@ import java.util.Calendar;
  * Created by Lukas Golombek on 6/18/17.
  */
 
-public class editTextCalendar {
+public class EditTextCalendar {
 
     private Calendar calendar = null;
     private DatePickerDialog datePickerDialog = null;
     private int year = 1987, month = 01, day = 01;
 
-    editTextCalendar(Context context, final EditText editText) {
+    EditTextCalendar(Context context, final EditText editText) {
 
         calendar = Calendar.getInstance();
 

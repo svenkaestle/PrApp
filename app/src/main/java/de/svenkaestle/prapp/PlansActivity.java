@@ -21,8 +21,8 @@ public class PlansActivity extends AppCompatActivity {
 
         EditText planningStartDateEditText = (EditText) findViewById(R.id.planningStartDateEditText );
 
-        editTextCalendar startCalendarDialog = new editTextCalendar(PlansActivity.this, planningStartDateEditText);
-        editTextCalendar endCalendarDialog = new editTextCalendar(PlansActivity.this, planningStartDateEditText);
+        EditTextCalendar startCalendarDialog = new EditTextCalendar(PlansActivity.this, planningStartDateEditText);
+        EditTextCalendar endCalendarDialog = new EditTextCalendar(PlansActivity.this, planningStartDateEditText);
     }
 
     @Override
