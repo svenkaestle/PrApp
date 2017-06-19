@@ -11,6 +11,5 @@
 * Create medication entries automatically for a planned an encounter
   (default answer to "Medication taken": no)
 * Delete entries in calendar
+  * Implement day view for precise selection of existing entries for a day?
 * Check for "obligatory/optional" on entry
-* Check if activity is already in activity stack on close to avoid endless amount of open activities
-* (optional) Change "yes/no" in PrEP-screen to swipe
