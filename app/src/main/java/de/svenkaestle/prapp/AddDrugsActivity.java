@@ -11,8 +11,12 @@ import android.widget.EditText;
 
 public class AddDrugsActivity extends AppCompatActivity {
     EditText medicationAmount;
-    Button minus;
-    Button plus;
+    Button decreaseMedicationAmount;
+    Button increaseMedicationAmount;
+
+    String medicationAmountOldValue;
+    String medicationAmountNewValue;
+    Integer newValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,29 +25,28 @@ public class AddDrugsActivity extends AppCompatActivity {
         medicationAmount = (EditText) findViewById(R.id.medicationNumberEditView);
         medicationAmount.setText("0");
 
-        minus = (Button) findViewById(R.id.decreaseMedicationNumberButton);
-        plus = (Button) findViewById(R.id.increaseMedicationNumberButton);
+        decreaseMedicationAmount = (Button) findViewById(R.id.decreaseMedicationNumberButton);
+        increaseMedicationAmount = (Button) findViewById(R.id.increaseMedicationNumberButton);
 
-
-        minus.setOnClickListener(new View.OnClickListener() {
+        decreaseMedicationAmount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String medicationAmountOldValue = medicationAmount.getText().toString();
-                Integer newValue = Integer.valueOf(medicationAmountOldValue)-1;
-                if(newValue <= 0){
+                medicationAmountOldValue = medicationAmount.getText().toString();
+                newValue = Integer.valueOf(medicationAmountOldValue) - 1;
+                if (newValue <= 0) {
                     newValue = 0;
                 }
-                String medicationAmountNewValue = newValue.toString();
+                medicationAmountNewValue = newValue.toString();
                 medicationAmount.setText(medicationAmountNewValue);
             }
         });
 
-        plus.setOnClickListener(new View.OnClickListener() {
+        increaseMedicationAmount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String medicationAmountOldValue = medicationAmount.getText().toString();
-                Integer newValue = Integer.valueOf(medicationAmountOldValue)+1;
-                String medicationAmountNewValue = newValue.toString();
+                medicationAmountOldValue = medicationAmount.getText().toString();
+                newValue = Integer.valueOf(medicationAmountOldValue) + 1;
+                medicationAmountNewValue = newValue.toString();
                 medicationAmount.setText(medicationAmountNewValue);
             }
         });
