@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), PrEPActivity.class));
                         return true;
                     case R.id.itemStock:
-                        startActivity(new Intent(getApplicationContext(), AddDrugsActivity.class));
+                        startActivity(new Intent(getApplicationContext(), StockActivity.class));
                         return true;
                     case R.id.itemScreening:
                         startActivity(new Intent(getApplicationContext(), ScreeningActivity.class));
