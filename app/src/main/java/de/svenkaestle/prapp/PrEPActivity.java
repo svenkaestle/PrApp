@@ -3,22 +3,16 @@ package de.svenkaestle.prapp;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.Calendar;
 import java.util.Formatter;
@@ -120,12 +114,11 @@ public class PrEPActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menu_links:
                 startActivity(new Intent(getApplicationContext(), LinksActivity.class));
-                return true;
-            case R.id.menu_disclaimer:
-                startActivity(new Intent(getApplicationContext(), DisclaimerActivity.class));
+                this.finish();
                 return true;
             case R.id.menu_contact:
                 startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+                this.finish();
                 return true;
             default:
                 finish();

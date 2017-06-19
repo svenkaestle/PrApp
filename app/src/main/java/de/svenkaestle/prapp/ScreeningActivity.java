@@ -1,14 +1,13 @@
 package de.svenkaestle.prapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 public class ScreeningActivity extends AppCompatActivity {
 
@@ -63,12 +62,11 @@ public class ScreeningActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menu_links:
                 startActivity(new Intent(getApplicationContext(), LinksActivity.class));
-                return true;
-            case R.id.menu_disclaimer:
-                startActivity(new Intent(getApplicationContext(), DisclaimerActivity.class));
+                this.finish();
                 return true;
             case R.id.menu_contact:
                 startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+                this.finish();
                 return true;
             default:
                 finish();

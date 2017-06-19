@@ -106,12 +106,11 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menu_links:
                 startActivity(new Intent(getApplicationContext(), LinksActivity.class));
-                return true;
-            case R.id.menu_disclaimer:
-                startActivity(new Intent(getApplicationContext(), DisclaimerActivity.class));
+                this.finish();
                 return true;
             case R.id.menu_contact:
                 startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+                this.finish();
                 return true;
             default:
                 return true;
