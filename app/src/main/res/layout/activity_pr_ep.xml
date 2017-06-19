@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/prep_time"
-        android:textSize="@dimen/edit_text_size" />
+        android:textSize="@dimen/global_form_text_size" />
 
     <EditText
         android:id="@+id/prepTimePicker"
@@ -46,7 +46,8 @@
         android:layout_marginTop="@dimen/global_margin"
         android:padding="24dp"
         android:text="@string/prep_taken"
-        android:textSize="@dimen/edit_text_size" />
+        android:textSize="@dimen/global_form_text_size"
+        android:textAlignment="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,17 +59,17 @@
         <Button
             android:id="@+id/prepNO"
             android:padding="20dp"
-            android:layout_width="120dp"
+            android:layout_width="140dp"
             android:layout_marginEnd="20dp"
             android:textSize="24sp"
             android:textColor="@color/white"
             android:background="@color/colorPrimary"
             android:layout_height="wrap_content"
-            android:text="@string/no" />
+            android:text="@string/not_yet" />
 
         <Button
             android:id="@+id/prepOK"
-            android:layout_width="120dp"
+            android:layout_width="140dp"
             android:padding="20dp"
             android:textSize="24sp"
             android:textColor="@color/white"
