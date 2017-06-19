@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">PrApp</string>
+    <string name="safety">SAFETY</string>
+    <string name="medication_name">Medication name</string>
+    <string name="medication_number">Number of tablets</string>
+    <string name="medication_source">Medication source</string>
+    <string name="topMenuLinks">Links</string>
+    <string name="topMenuDisclaimer">Disclaimer</string>
+    <string name="topMenuContact">Contact</string>
+    <string name="encounter_date">Date</string>
+    <string name="encounter_risk">Risk estimate</string>
+    <string name="partner_name">Partner\'s name</string>
+    <string name="prep_date">Date</string>
+    <string name="prep_time">Time</string>
+    <string name="prep_taken">PrEP taken?</string>
+    <string name="OK">OK</string>
+    <string name="CANCEL">CANCEL</string>
+    <string name="planning_end_date">End date</string>
+    <string name="planning_description">Description</string>
+    <string name="screening_time">Time</string>
+    <string name="screening_reason">Tests</string>
+
+    <!-- Spinner in encounters screen -->
+    <string-array name="encounterRiskEstimate">
+        <item>Please enter...</item>
+        <item>No risk</item>
+        <item>Low risk</item>
+        <item>Medium risk</item>
+        <item>High risk</item>
+    </string-array>
+
+    <!-- Spinners on screenings screen -->
+    <string-array name="HIV">
+        <item>Not done</item>
+        <item>Pos./Reactive</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string-array name="GO">
+        <item>Not done</item>
+        <item>Positive</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string-array name="CT">
+        <item>Not done</item>
+        <item>Positive</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string-array name="SY">
+        <item>Not done</item>
+        <item>Positive</item>
+        <item>Unclear</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string-array name="HCV">
+        <item>Not done</item>
+        <item>Pos./Reactive</item>
+        <item>Negative</item>
+    </string-array>
+</resources>
