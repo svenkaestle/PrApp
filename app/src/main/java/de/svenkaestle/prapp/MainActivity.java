@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.custom_dialog);
         dialog.setTitle("Add Something.");
 
-        Button btnEncounters = (Button) dialog.findViewById(R.id.encounters);
+        Button btnEncounters = (Button) dialog.findViewById(R.id.encounter);
         btnEncounters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btnPlanning = (Button) dialog.findViewById(R.id.planning);
+        Button btnPlanning = (Button) dialog.findViewById(R.id.plan);
         btnPlanning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
