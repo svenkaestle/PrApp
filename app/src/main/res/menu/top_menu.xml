@@ -7,11 +7,6 @@
         android:title="@string/topMenuLinks"/>
 
     <item
-        android:id="@+id/menu_disclaimer"
-        android:orderInCategory="100"
-        android:title="@string/topMenuDisclaimer"/>
-
-    <item
         android:id="@+id/menu_contact"
         android:orderInCategory="100"
         android:title="@string/topMenuContact"/>
