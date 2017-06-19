@@ -139,7 +139,7 @@ public class PrEPActivity extends AppCompatActivity {
 
     private void initializeButtons() {
         dataSource = new DataSource(this);
-        btnCancel = (Button) findViewById(R.id.prepCANCEL);
+        btnCancel = (Button) findViewById(R.id.prepNO);
         btnOk = (Button) findViewById(R.id.prepOK);
 
         btnCancel.setOnClickListener(new View.OnClickListener() {

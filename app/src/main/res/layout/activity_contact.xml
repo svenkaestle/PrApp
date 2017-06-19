@@ -9,6 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:text="\nDanke HackHPI 2017!\n\nEmail-Adressen:\na23236@aup.edu\nskaestle@uni-potsdam.de\nlukasgolombek@aol.de\n\nDisclaimer\nDiese App sollte nicht zum Ersatz von medizinischer Beratung dienen. Bitte wenden Sie sich immer an spezialisierte Teststellen."/>
 
 </android.support.constraint.ConstraintLayout>
