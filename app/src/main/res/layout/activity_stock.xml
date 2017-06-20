@@ -85,7 +85,6 @@
         android:layout_below="@id/medicationSourceTextView"
         android:layout_above="@id/addMedicationButton"
         android:layout_marginBottom="@dimen/global_margin"
-        android:text="Lorem ipsum"
         android:textSize="@dimen/edit_text_size" />
 
 

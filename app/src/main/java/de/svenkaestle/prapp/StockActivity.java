@@ -9,10 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class AddDrugsActivity extends AppCompatActivity {
+public class StockActivity extends AppCompatActivity {
+
     EditText medicationAmount;
     Button decreaseMedicationAmount;
     Button increaseMedicationAmount;
+    Button addMedicationButton;
 
     String medicationAmountOldValue;
     String medicationAmountNewValue;
@@ -20,8 +22,9 @@ public class AddDrugsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_drugs);
+        setContentView(R.layout.activity_stock);
         medicationAmount = (EditText) findViewById(R.id.medicationNumberEditView);
         medicationAmount.setText("0");
 
@@ -48,6 +51,15 @@ public class AddDrugsActivity extends AppCompatActivity {
                 newValue = Integer.valueOf(medicationAmountOldValue) + 1;
                 medicationAmountNewValue = newValue.toString();
                 medicationAmount.setText(medicationAmountNewValue);
+            }
+        });
+
+        addMedicationButton = (Button) findViewById(R.id.addMedicationButton);
+
+        addMedicationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Add entered data to database
             }
         });
 
