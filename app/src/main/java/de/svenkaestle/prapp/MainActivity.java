@@ -1,6 +1,7 @@
 package de.svenkaestle.prapp;
 
 import android.app.Dialog;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,12 +17,15 @@ import android.widget.TextView;
 
 import com.imanoweb.calendarview.CalendarListener;
 import com.imanoweb.calendarview.CustomCalendarView;
+import com.imanoweb.calendarview.DayDecorator;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import de.svenkaestle.prapp.Helper.ColorDecorator;
 import de.svenkaestle.prapp.Helper.DataSource;
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
 
@@ -156,6 +160,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // TODO DECORATOR!!
+//        List decorators = new ArrayList<>();
+//        decorators.add(new ColorDecorator(this.dataSource));
+//        calendarView.setDecorators(decorators);
+//        calendarView.refreshCalendar(currentCalendar);
 
     } // end initializeCustomCalendar
 
@@ -231,6 +239,10 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();
     } // end showDialog
+
+    private void decorateCalendar() {
+
+    }
 
 
 
