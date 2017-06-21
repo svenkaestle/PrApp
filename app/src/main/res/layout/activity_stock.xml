@@ -55,6 +55,7 @@
         android:layout_toRightOf="@id/decreaseMedicationNumberButton"
         android:layout_toLeftOf="@id/increaseMedicationNumberButton"
         android:text="0"
+        android:inputType="number"
         android:textAlignment="center"
         android:textSize="@dimen/global_form_text_size"
         android:layout_marginBottom="@dimen/global_margin"/>
@@ -84,7 +85,7 @@
         android:layout_below="@id/medicationSourceTextView"
         android:layout_above="@id/addMedicationButton"
         android:layout_marginBottom="@dimen/global_margin"
-        android:text="Lorem ipsum"
         android:textSize="@dimen/edit_text_size" />
+
 
 </RelativeLayout>

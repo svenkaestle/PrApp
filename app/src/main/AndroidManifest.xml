@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="PrApp"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -20,46 +20,41 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddDrugsActivity"
+            android:name=".Activities.StockActivity"
             android:label="Medication"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".EncounterActivity"
+            android:name=".Activities.EncounterActivity"
             android:label="Encounters"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PlansActivity"
+            android:name=".Activities.PlansActivity"
             android:label="Planning"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ScreeningActivity"
+            android:name=".Activities.ScreeningActivity"
             android:label="Screening"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LinksActivity"
+            android:name=".Activities.LinksActivity"
             android:label="Links"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PrEPActivity"
+            android:name=".Activities.PrEPActivity"
             android:label="PrEP"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ContactActivity"
+            android:name=".Activities.ContactActivity"
             android:label="Contact us"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait" />
 
-        <activity
-            android:name=".DisclaimerActivity"
-            android:label="Disclaimer"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

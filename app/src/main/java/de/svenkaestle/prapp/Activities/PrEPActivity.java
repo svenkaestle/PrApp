@@ -1,30 +1,25 @@
-package de.svenkaestle.prapp;
+package de.svenkaestle.prapp.Activities;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.Calendar;
 import java.util.Formatter;
 import java.util.Locale;
 
 import de.svenkaestle.prapp.Helper.DataSource;
+import de.svenkaestle.prapp.R;
 
 public class PrEPActivity extends AppCompatActivity {
 
@@ -121,9 +116,6 @@ public class PrEPActivity extends AppCompatActivity {
             case R.id.menu_links:
                 startActivity(new Intent(getApplicationContext(), LinksActivity.class));
                 return true;
-            case R.id.menu_disclaimer:
-                startActivity(new Intent(getApplicationContext(), DisclaimerActivity.class));
-                return true;
             case R.id.menu_contact:
                 startActivity(new Intent(getApplicationContext(), ContactActivity.class));
                 return true;
@@ -146,7 +138,7 @@ public class PrEPActivity extends AppCompatActivity {
 
     private void initializeButtons() {
         dataSource = new DataSource(this);
-        btnCancel = (Button) findViewById(R.id.prepCANCEL);
+        btnCancel = (Button) findViewById(R.id.prepNO);
         btnOk = (Button) findViewById(R.id.prepOK);
 
         btnCancel.setOnClickListener(new View.OnClickListener() {

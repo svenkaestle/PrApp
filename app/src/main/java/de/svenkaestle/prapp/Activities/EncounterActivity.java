@@ -1,18 +1,18 @@
-package de.svenkaestle.prapp;
+package de.svenkaestle.prapp.Activities;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.util.Calendar;
+
+import de.svenkaestle.prapp.Helper.EditTextCalendar;
+import de.svenkaestle.prapp.R;
 
 public class EncounterActivity extends AppCompatActivity {
 
@@ -37,29 +37,9 @@ public class EncounterActivity extends AppCompatActivity {
 
         // CALENDAR
 
-        calendar = Calendar.getInstance();
+        EditText encounterDateEditText = (EditText) findViewById(R.id.encounterDatePicker);
 
-        year = calendar.get(Calendar.YEAR);
-        month = calendar.get(Calendar.MONTH);
-        day = calendar.get(Calendar.DAY_OF_MONTH);
-
-        final EditText encounterDateEditText = (EditText) findViewById(R.id.encounterDatePicker);
-
-        final DatePickerDialog datePickerDialog = new DatePickerDialog(EncounterActivity.this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                showDate(encounterDateEditText, year, month+1, day);
-            }
-        }, year, month, day);
-
-        showDate(encounterDateEditText, year, month+1, day);
-
-        encounterDateEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                datePickerDialog.show();
-            }
-        });
+        EditTextCalendar editTextCalendar = new EditTextCalendar(EncounterActivity.this, encounterDateEditText);
     }
 
     @Override
@@ -74,9 +54,6 @@ public class EncounterActivity extends AppCompatActivity {
             case R.id.menu_links:
                 startActivity(new Intent(getApplicationContext(), LinksActivity.class));
                 return true;
-            case R.id.menu_disclaimer:
-                startActivity(new Intent(getApplicationContext(), DisclaimerActivity.class));
-                return true;
             case R.id.menu_contact:
                 startActivity(new Intent(getApplicationContext(), ContactActivity.class));
                 return true;
@@ -84,10 +61,5 @@ public class EncounterActivity extends AppCompatActivity {
                 finish();
                 return true;
         }
-    }
-
-    private void showDate(EditText editText, int year, int month, int day) {
-        editText.setText(new StringBuilder().append(day).append(".")
-                .append(month).append(".").append(year));
     }
 }

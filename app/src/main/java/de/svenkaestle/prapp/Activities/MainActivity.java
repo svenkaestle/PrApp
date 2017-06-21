@@ -1,4 +1,4 @@
-package de.svenkaestle.prapp;
+package de.svenkaestle.prapp.Activities;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -11,20 +11,20 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.imanoweb.calendarview.CalendarListener;
 import com.imanoweb.calendarview.CustomCalendarView;
 
-import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import de.svenkaestle.prapp.Helper.DataSource;
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
+import de.svenkaestle.prapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -108,9 +108,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_links:
                 startActivity(new Intent(getApplicationContext(), LinksActivity.class));
                 return true;
-            case R.id.menu_disclaimer:
-                startActivity(new Intent(getApplicationContext(), DisclaimerActivity.class));
-                return true;
             case R.id.menu_contact:
                 startActivity(new Intent(getApplicationContext(), ContactActivity.class));
                 return true;
@@ -123,13 +120,28 @@ public class MainActivity extends AppCompatActivity {
         TextView textViewSafety = (TextView) findViewById(R.id.safety);
         if (safety) {
             textViewSafety.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.safety_green));
+            textViewSafety.setText("Have fun");
         } else {
             textViewSafety.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.safety_red));
+            textViewSafety.setText("Not safe");
         }
     } // end initializeSafety
 
     private void initializeCustomCalendar() {
         CustomCalendarView calendarView = (CustomCalendarView) findViewById(R.id.calendarView);
+
+        //Initialize calendar with date
+        Calendar currentCalendar = Calendar.getInstance(Locale.getDefault());
+
+        //Show Monday as first date of week
+        calendarView.setFirstDayOfWeek(Calendar.MONDAY);
+
+        //Show/hide overflow days of a month
+        calendarView.setShowOverflowDate(false);
+
+        //call refreshCalendar to update calendar the view
+        calendarView.refreshCalendar(currentCalendar);
+
         calendarView.setCalendarListener(new CalendarListener() {
             @Override
             public void onDateSelected(Date date) {
@@ -143,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
 
         // TODO DECORATOR!!
 //        List decorators = new ArrayList<>();
-//        decorators.add(new );
+//        decorators.add(new ColorDecorator(this.dataSource));
 //        calendarView.setDecorators(decorators);
 //        calendarView.refreshCalendar(currentCalendar);
 
@@ -170,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), PrEPActivity.class));
                         return true;
                     case R.id.itemStock:
-                        startActivity(new Intent(getApplicationContext(), AddDrugsActivity.class));
+                        startActivity(new Intent(getApplicationContext(), StockActivity.class));
                         return true;
                     case R.id.itemScreening:
                         startActivity(new Intent(getApplicationContext(), ScreeningActivity.class));
@@ -192,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.custom_dialog);
         dialog.setTitle("Add Something.");
 
-        Button btnEncounters = (Button) dialog.findViewById(R.id.encounters);
+        Button btnEncounters = (Button) dialog.findViewById(R.id.encounter);
         btnEncounters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -201,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btnPlanning = (Button) dialog.findViewById(R.id.planning);
+        Button btnPlanning = (Button) dialog.findViewById(R.id.plan);
         btnPlanning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,6 +233,10 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();
     } // end showDialog
+
+    private void decorateCalendar() {
+
+    }
 
 
 
