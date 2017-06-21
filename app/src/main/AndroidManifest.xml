@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddDrugsActivity"
+            android:name=".StockActivity"
             android:label="Medication"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
@@ -55,11 +55,6 @@
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
 
-        <activity
-            android:name=".DisclaimerActivity"
-            android:label="Disclaimer"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

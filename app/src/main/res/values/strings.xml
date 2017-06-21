@@ -19,6 +19,8 @@
     <string name="planning_description">Description</string>
     <string name="screening_time">Time</string>
     <string name="screening_reason">Tests</string>
+    <string name="not_yet">NOT YET</string>
+    <string name="yes">YES</string>
 
     <!-- Spinner in encounters screen -->
     <string-array name="encounterRiskEstimate">
