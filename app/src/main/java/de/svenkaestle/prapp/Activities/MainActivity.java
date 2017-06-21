@@ -1,7 +1,6 @@
-package de.svenkaestle.prapp;
+package de.svenkaestle.prapp.Activities;
 
 import android.app.Dialog;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -17,17 +16,15 @@ import android.widget.TextView;
 
 import com.imanoweb.calendarview.CalendarListener;
 import com.imanoweb.calendarview.CustomCalendarView;
-import com.imanoweb.calendarview.DayDecorator;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import de.svenkaestle.prapp.Helper.ColorDecorator;
 import de.svenkaestle.prapp.Helper.DataSource;
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
+import de.svenkaestle.prapp.R;
 
 public class MainActivity extends AppCompatActivity {
 

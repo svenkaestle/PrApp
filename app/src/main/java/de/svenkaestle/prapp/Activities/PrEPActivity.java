@@ -1,4 +1,4 @@
-package de.svenkaestle.prapp;
+package de.svenkaestle.prapp.Activities;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -19,6 +19,7 @@ import java.util.Formatter;
 import java.util.Locale;
 
 import de.svenkaestle.prapp.Helper.DataSource;
+import de.svenkaestle.prapp.R;
 
 public class PrEPActivity extends AppCompatActivity {
 

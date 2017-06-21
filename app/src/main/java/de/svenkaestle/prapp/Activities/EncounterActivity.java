@@ -1,4 +1,4 @@
-package de.svenkaestle.prapp;
+package de.svenkaestle.prapp.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.util.Calendar;
+
+import de.svenkaestle.prapp.Helper.EditTextCalendar;
+import de.svenkaestle.prapp.R;
 
 public class EncounterActivity extends AppCompatActivity {
 

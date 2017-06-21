@@ -1,4 +1,4 @@
-package de.svenkaestle.prapp;
+package de.svenkaestle.prapp.Helper;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -18,7 +18,7 @@ public class EditTextCalendar {
     private DatePickerDialog datePickerDialog = null;
     private int year = 1987, month = 01, day = 01;
 
-    EditTextCalendar(Context context, final EditText editText) {
+    public EditTextCalendar(Context context, final EditText editText) {
 
         calendar = Calendar.getInstance();
 

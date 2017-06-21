@@ -1,4 +1,4 @@
-package de.svenkaestle.prapp;
+package de.svenkaestle.prapp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import de.svenkaestle.prapp.Helper.EditTextCalendar;
+import de.svenkaestle.prapp.R;
 
 public class ScreeningActivity extends AppCompatActivity {
 

@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.svenkaestle.prapp.LinksActivity">
+    tools:context="de.svenkaestle.prapp.Activities.LinksActivity">
 
 </android.support.constraint.ConstraintLayout>
