@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import de.svenkaestle.prapp.Helper.DataSource;
+import de.svenkaestle.prapp.Database.DataSource;
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
 import de.svenkaestle.prapp.R;
 

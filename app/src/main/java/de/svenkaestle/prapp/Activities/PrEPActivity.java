@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.Formatter;
 import java.util.Locale;
 
-import de.svenkaestle.prapp.Helper.DataSource;
+import de.svenkaestle.prapp.Database.DataSource;
 import de.svenkaestle.prapp.R;
 
 public class PrEPActivity extends AppCompatActivity {

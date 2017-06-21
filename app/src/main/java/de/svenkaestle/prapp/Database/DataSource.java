@@ -1,4 +1,4 @@
-package de.svenkaestle.prapp.Helper;
+package de.svenkaestle.prapp.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -19,10 +19,10 @@ public class DataSource {
 
     private SQLiteDatabase database;
     private DbHelper dbHelper;
-    private String[] columns = {
-            DbHelper.COLUMN_ID,
-            DbHelper.COLUMN_DATE,
-            DbHelper.COLUMN_TIME
+    private String[] prepColumns = {
+            DbHelper.COLUMN_PREP_ID,
+            DbHelper.COLUMN_PREP_DATETIME,
+            DbHelper.COLUMN_PREP_TIMESTAMP
     };
 
 
@@ -44,13 +44,13 @@ public class DataSource {
 
     public PrEPObject createPrEPObject(String date, String time) {
         ContentValues values = new ContentValues();
-        values.put(DbHelper.COLUMN_DATE, date);
-        values.put(DbHelper.COLUMN_TIME, time);
+        values.put(DbHelper.COLUMN_PREP_DATETIME, date);
+        values.put(DbHelper.COLUMN_PREP_TIMESTAMP, time);
 
         long insertId = database.insert(DbHelper.TABLE_PREP, null, values);
 
         Cursor cursor = database.query(DbHelper.TABLE_PREP,
-                columns, DbHelper.COLUMN_ID + "=" + insertId,
+                prepColumns, DbHelper.COLUMN_PREP_ID + "=" + insertId,
                 null, null, null, null);
 
         cursor.moveToFirst();
@@ -61,9 +61,9 @@ public class DataSource {
     }
 
     private PrEPObject cursorToPrEPObject(Cursor cursor) {
-        int idIndex = cursor.getColumnIndex(DbHelper.COLUMN_ID);
-        int idDate = cursor.getColumnIndex(DbHelper.COLUMN_DATE);
-        int idTime = cursor.getColumnIndex(DbHelper.COLUMN_TIME);
+        int idIndex = cursor.getColumnIndex(DbHelper.COLUMN_PREP_ID);
+        int idDate = cursor.getColumnIndex(DbHelper.COLUMN_PREP_DATETIME);
+        int idTime = cursor.getColumnIndex(DbHelper.COLUMN_PREP_TIMESTAMP);
 
         String date = cursor.getString(idDate);
         String time = cursor.getString(idTime);
@@ -78,7 +78,7 @@ public class DataSource {
         List<PrEPObject> prEPObjectsList = new ArrayList<>();
 
         Cursor cursor = database.query(DbHelper.TABLE_PREP,
-                columns, null, null, null, null, null);
+                prepColumns, null, null, null, null, null);
 
         cursor.moveToFirst();
         PrEPObject prEPObject;
