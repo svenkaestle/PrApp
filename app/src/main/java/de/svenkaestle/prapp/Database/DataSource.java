@@ -66,6 +66,7 @@ public class DataSource {
     }
 
     private PrEPObject cursorToPrEPObject(Cursor cursor) {
+
         int idIndex = cursor.getColumnIndex(DbHelper.COLUMN_PREP_ID);
         int idDateTime = cursor.getColumnIndex(DbHelper.COLUMN_PREP_DATETIME);
         int idTimestamp = cursor.getColumnIndex(DbHelper.COLUMN_PREP_TIMESTAMP);
@@ -74,9 +75,8 @@ public class DataSource {
         String timestamp = cursor.getString(idTimestamp);
         int id = cursor.getInt(idIndex);
 
-        PrEPObject prEPObject = new PrEPObject(id, dateTime, timestamp);
+        return new PrEPObject(id, dateTime, timestamp);
 
-        return prEPObject;
     }
 
     public List<PrEPObject> getAllPrEPObjects() {

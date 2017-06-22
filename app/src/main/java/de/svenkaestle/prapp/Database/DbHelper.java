@@ -68,7 +68,8 @@ class DbHelper extends SQLiteOpenHelper {
                     COLUMN_ENCOUNTER_DATE + " TEXT NOT NULL, " +
                     COLUMN_ENCOUNTER_RISK + " TEXT CHECK(" + COLUMN_ENCOUNTER_RISK + " IN ('n', 'l', 'm', 'h')) NOT NULL, " +
                     COLUMN_ENCOUNTER_PARTNERNAME + " TEXT NULL DEFAULT NULL, " +
-                    COLUMN_ENCOUNTER_TIMESTAMP + " DATETIME DEFAULT CURRENT_TIMESTAMP);";
+
+                    COLUMN_ENCOUNTER_TIMESTAMP + " DATETIME DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'LOCALTIME')));";
 
     /* create the medication tables */
     private static final String SQL_CREATE_MEDICATION =
@@ -77,7 +78,7 @@ class DbHelper extends SQLiteOpenHelper {
                     COLUMN_MEDICATION_NAME + " TEXT NOT NULL, " +
                     COLUMN_MEDICATION_NUMBER + " INTEGER NOT NULL, " +
                     COLUMN_MEDICATION_SOURCE + " TEXT NULL DEFAULT NULL, " +
-                    COLUMN_MEDICATION_TIMESTAMP + " DATETIME DEFAULT CURRENT_TIMESTAMP);";
+                    COLUMN_MEDICATION_TIMESTAMP + " DATETIME DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'LOCALTIME')));";
 
     /* create the plan tables */
     private static final String SQL_CREATE_PLAN =
@@ -86,14 +87,14 @@ class DbHelper extends SQLiteOpenHelper {
                     COLUMN_PLAN_STARTDATE + " DATETIME NOT NULL, " +
                     COLUMN_PLAN_ENDDATE + " DATETIME NOT NULL, " +
                     COLUMN_PLAN_DESCRIPTION + " TEXT NULL DEFAULT NULL, " +
-                    COLUMN_PLAN_TIMESTAMP + " DATETIME DEFAULT CURRENT_TIMESTAMP);";
+                    COLUMN_PLAN_TIMESTAMP + " DATETIME DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'LOCALTIME')));";
 
     /* create the prep tables */
     private static final String SQL_CREATE_PREP =
             "CREATE TABLE " + TABLE_PREP +
                     "(" + COLUMN_PREP_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_PREP_DATETIME + " DATETIME NOT NULL, " +
-                    COLUMN_PREP_TIMESTAMP + " DATETIME DEFAULT CURRENT_TIMESTAMP);";
+                    COLUMN_PREP_TIMESTAMP + " DATETIME DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'LOCALTIME')));";
 
     /* create the screening tables */
     private static final String SQL_CREATE_SCREENING =
@@ -105,7 +106,7 @@ class DbHelper extends SQLiteOpenHelper {
                     COLUMN_SCREENING_CHLAMYDIA + " TEXT CHECK(" + COLUMN_SCREENING_CHLAMYDIA + " IN ('0', 'p', 'n')) NOT NULL, " +
                     COLUMN_SCREENING_SYPHILIS + " TEXT CHECK(" + COLUMN_SCREENING_SYPHILIS + " IN ('0', 'p', 'n', 'u')) NOT NULL, " +
                     COLUMN_SCREENING_HEPATITISC + " TEXT CHECK(" + COLUMN_SCREENING_HEPATITISC + " IN ('0', 'p', 'n')) NOT NULL, " +
-                    COLUMN_SCREENING_TIMESTAMP + " DATETIME DEFAULT CURRENT_TIMESTAMP);";
+                    COLUMN_SCREENING_TIMESTAMP + " DATETIME DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'LOCALTIME')));";
 
 
     DbHelper(Context context) {
