@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Locale;
 
 import de.svenkaestle.prapp.ObjectClasses.EncounterObject;
+import de.svenkaestle.prapp.ObjectClasses.MedicationObject;
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
 
 /**
@@ -37,6 +38,13 @@ public class DataSource {
             DbHelper.COLUMN_ENCOUNTER_RISK,
             DbHelper.COLUMN_ENCOUNTER_PARTNERNAME,
             DbHelper.COLUMN_ENCOUNTER_TIMESTAMP
+    };
+    private String[] medicationColumns = {
+            DbHelper.COLUMN_MEDICATION_ID,
+            DbHelper.COLUMN_MEDICATION_NAME,
+            DbHelper.COLUMN_MEDICATION_NUMBER,
+            DbHelper.COLUMN_MEDICATION_SOURCE,
+            DbHelper.COLUMN_MEDICATION_TIMESTAMP
     };
 
 
@@ -96,10 +104,17 @@ public class DataSource {
         }
         values.put(DbHelper.COLUMN_ENCOUNTER_RISK, risk);
 
-
         database.insert(DbHelper.TABLE_ENCOUNTER, null, values);
     }
 
+    public void insertMedicationObject(String name, int number, String source) {
+        ContentValues values = new ContentValues();
+        values.put(DbHelper.COLUMN_MEDICATION_NAME, name);
+        values.put(DbHelper.COLUMN_MEDICATION_NUMBER, number);
+        values.put(DbHelper.COLUMN_MEDICATION_SOURCE, source);
+
+        database.insert(DbHelper.TABLE_MEDICATION, null, values);
+    }
 
 
     /* methods to get index positions */
@@ -135,9 +150,27 @@ public class DataSource {
 
     }
 
+    private MedicationObject cursorToMedicationObject(Cursor cursor) {
+
+        int idIndex = cursor.getColumnIndexOrThrow(DbHelper.COLUMN_MEDICATION_ID);
+        int idName = cursor.getColumnIndexOrThrow(DbHelper.COLUMN_MEDICATION_NAME);
+        int idNumber = cursor.getColumnIndexOrThrow(DbHelper.COLUMN_MEDICATION_NUMBER);
+        int idSource = cursor.getColumnIndexOrThrow(DbHelper.COLUMN_MEDICATION_SOURCE);
+        int idTimestamp = cursor.getColumnIndexOrThrow(DbHelper.COLUMN_MEDICATION_TIMESTAMP);
+
+        int id = cursor.getInt(idIndex);
+        String name = cursor.getString(idName);
+        int number = cursor.getInt(idNumber);
+        String source = cursor.getString(idSource);
+        String timestamp = cursor.getString(idTimestamp);
+
+        return new MedicationObject(id, name,number, source, timestamp);
+
+    }
+
     /* methods to read data from the database */
     public List<PrEPObject> getAllPrEPObjects() {
-        List<PrEPObject> prEPObjectsList = new ArrayList<>();
+        List<PrEPObject> prEPObjectList = new ArrayList<>();
 
         Cursor cursor = database.query(DbHelper.TABLE_PREP,
                 prepColumns, null, null, null, null, null);
@@ -147,18 +180,19 @@ public class DataSource {
 
         while(!cursor.isAfterLast()) {
             prEPObject = cursorToPrEPObject(cursor);
-            prEPObjectsList.add(prEPObject);
+            prEPObjectList.add(prEPObject);
             Log.d("DataSource", "ID: " + prEPObject.getId() + ", Inhalt: " + prEPObject.toString());
             cursor.moveToNext();
         }
 
         cursor.close();
 
-        return prEPObjectsList;
+        return prEPObjectList;
+
     }
 
     public List<EncounterObject> getAllEncounterObjects() {
-        List<EncounterObject> encounterObjectsList = new ArrayList<>();
+        List<EncounterObject> encounterObjectList = new ArrayList<>();
 
         Cursor cursor = database.query(DbHelper.TABLE_ENCOUNTER,
                 encounterColumns, null, null, null, null, null);
@@ -166,12 +200,31 @@ public class DataSource {
         EncounterObject encounterObject;
         while(cursor.moveToNext()) {
             encounterObject = cursorToEncounterObject(cursor);
-            encounterObjectsList.add(encounterObject);
+            encounterObjectList.add(encounterObject);
             Log.d("DataSource", "ID: " + encounterObject.getId() + ", Inhalt: " + encounterObject.toString());
         }
         cursor.close();
 
-        return encounterObjectsList;
+        return encounterObjectList;
+
+    }
+
+    public List<MedicationObject> getAllMedicationObjects() {
+        List<MedicationObject> medicationObjectList = new ArrayList<>();
+
+        Cursor cursor = database.query(DbHelper.TABLE_MEDICATION,
+                medicationColumns, null, null, null, null, null);
+
+        MedicationObject medicationObject;
+        while(cursor.moveToNext()) {
+            medicationObject = cursorToMedicationObject(cursor);
+            medicationObjectList.add(medicationObject);
+            Log.d("DataSource", "ID: " + medicationObject.getId() + ", Inhalt: " + medicationObject.toString());
+        }
+        cursor.close();
+
+        return medicationObjectList;
+
     }
 
     private String stringToDateTime(String s) {

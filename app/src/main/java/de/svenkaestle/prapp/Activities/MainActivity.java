@@ -24,6 +24,7 @@ import java.util.Locale;
 
 import de.svenkaestle.prapp.Database.DataSource;
 import de.svenkaestle.prapp.ObjectClasses.EncounterObject;
+import de.svenkaestle.prapp.ObjectClasses.MedicationObject;
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
 import de.svenkaestle.prapp.R;
 
@@ -71,8 +72,24 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void showAllListEntries () {
+
+        Log.d("ITEM", "--- ENCOUNTER TABLE ---");
+        List<EncounterObject> encounterObjectList = dataSource.getAllEncounterObjects();
+        for (EncounterObject eo : encounterObjectList) {
+            Log.d("ITEM", eo.toString());
+        }
+
+        Log.d("ITEM", "--- MEDICATION TABLE ---");
+        List<MedicationObject> medicationObjectList = dataSource.getAllMedicationObjects();
+        for (MedicationObject med : medicationObjectList) {
+            Log.d("ITEM", med.toString());
+        }
+
+        Log.d("ITEM", "--- PREP TABLE ---");
         List<PrEPObject> prEPObjectList = dataSource.getAllPrEPObjects();
-        List<EncounterObject> encounterObjectsList = dataSource.getAllEncounterObjects();
+        for (PrEPObject prep : prEPObjectList) {
+            Log.d("ITEM", prep.toString());
+        }
 
 //        Vorlage
 //        ArrayAdapter<PrEPObject> shoppingMemoArrayAdapter = new ArrayAdapter<>(
@@ -82,14 +99,6 @@ public class MainActivity extends AppCompatActivity {
 //
 //        ListView shoppingMemosListView = (ListView) findViewById(R.id.listview_shopping_memos);
 //        shoppingMemosListView.setAdapter(shoppingMemoArrayAdapter);
-
-        for (PrEPObject prep : prEPObjectList) {
-            Log.d("ITEM", prep.toString());
-        }
-        for (EncounterObject eo : encounterObjectsList) {
-            Log.d("ITEM", eo.toString());
-        }
-
     }
 
 
