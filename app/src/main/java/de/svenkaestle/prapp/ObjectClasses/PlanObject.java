@@ -13,6 +13,7 @@ public class PlanObject {
     private String description;
     private String timestamp;
 
+    /* constructor */
     public PlanObject(int id, String startDate, String endDate, String description, String timestamp) {
         this.id = id;
         this.startDate = startDate;
@@ -21,6 +22,7 @@ public class PlanObject {
         this.timestamp = timestamp;
     }
 
+    /* methods */
     public int getId() {
         return id;
     }
