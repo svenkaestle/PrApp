@@ -68,7 +68,6 @@ class DbHelper extends SQLiteOpenHelper {
                     COLUMN_ENCOUNTER_DATE + " TEXT NOT NULL, " +
                     COLUMN_ENCOUNTER_RISK + " TEXT CHECK(" + COLUMN_ENCOUNTER_RISK + " IN ('n', 'l', 'm', 'h')) NOT NULL, " +
                     COLUMN_ENCOUNTER_PARTNERNAME + " TEXT NULL DEFAULT NULL, " +
-
                     COLUMN_ENCOUNTER_TIMESTAMP + " DATETIME DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'LOCALTIME')));";
 
     /* create the medication tables */
