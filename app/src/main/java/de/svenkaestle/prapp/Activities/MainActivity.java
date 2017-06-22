@@ -25,7 +25,9 @@ import java.util.Locale;
 import de.svenkaestle.prapp.Database.DataSource;
 import de.svenkaestle.prapp.ObjectClasses.EncounterObject;
 import de.svenkaestle.prapp.ObjectClasses.MedicationObject;
+import de.svenkaestle.prapp.ObjectClasses.PlanObject;
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
+import de.svenkaestle.prapp.ObjectClasses.ScreeningObject;
 import de.svenkaestle.prapp.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -85,11 +87,24 @@ public class MainActivity extends AppCompatActivity {
             Log.d("ITEM", med.toString());
         }
 
+        Log.d("ITEM", "--- PLAN TABLE ---");
+        List<PlanObject> planObjectList = dataSource.getAllPlanObjects();
+        for (PlanObject plan : planObjectList) {
+            Log.d("ITEM", plan.toString());
+        }
+
         Log.d("ITEM", "--- PREP TABLE ---");
         List<PrEPObject> prEPObjectList = dataSource.getAllPrEPObjects();
         for (PrEPObject prep : prEPObjectList) {
             Log.d("ITEM", prep.toString());
         }
+
+        Log.d("ITEM", "--- SCREENING TABLE ---");
+        List<ScreeningObject> screeningObjectList = dataSource.getAllScreeningObjects();
+        for (ScreeningObject sc : screeningObjectList) {
+            Log.d("ITEM", sc.toString());
+        }
+
 
 //        Vorlage
 //        ArrayAdapter<PrEPObject> shoppingMemoArrayAdapter = new ArrayAdapter<>(
