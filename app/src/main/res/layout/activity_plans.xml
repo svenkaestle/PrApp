@@ -63,7 +63,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/encounterPartnerNameEditView"
+        android:id="@+id/planningDescriptionEditView"
         android:layout_below="@id/planningDescriptionTextView"
         android:layout_above="@id/addPlanButton"
         android:layout_marginBottom="@dimen/global_margin"

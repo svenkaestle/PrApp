@@ -22,8 +22,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import de.svenkaestle.prapp.Helper.DataSource;
+import de.svenkaestle.prapp.Database.DataSource;
+import de.svenkaestle.prapp.ObjectClasses.EncounterObject;
+import de.svenkaestle.prapp.ObjectClasses.MedicationObject;
+import de.svenkaestle.prapp.ObjectClasses.PlanObject;
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
+import de.svenkaestle.prapp.ObjectClasses.ScreeningObject;
 import de.svenkaestle.prapp.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,16 +48,8 @@ public class MainActivity extends AppCompatActivity {
         initializeStock();
         initializeBottomBar();
 
-        PrEPObject prep = new PrEPObject(1, "2/3/2012", "12:23");
-        Log.d("MainActivity", prep.toString());
-
         Log.d("MainActivity", "Das Datenquellen-Objekt wird angelegt.");
         dataSource = new DataSource(this);
-
-//        PrEPObject prEPObject = dataSource.createPrEPObject("DATE!", "TIME!2");
-
-
-
 
     } // end onCreate
 
@@ -78,7 +74,37 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void showAllListEntries () {
+
+        Log.d("ITEM", "--- ENCOUNTER TABLE ---");
+        List<EncounterObject> encounterObjectList = dataSource.getAllEncounterObjects();
+        for (EncounterObject eo : encounterObjectList) {
+            Log.d("ITEM", eo.toString());
+        }
+
+        Log.d("ITEM", "--- MEDICATION TABLE ---");
+        List<MedicationObject> medicationObjectList = dataSource.getAllMedicationObjects();
+        for (MedicationObject med : medicationObjectList) {
+            Log.d("ITEM", med.toString());
+        }
+
+        Log.d("ITEM", "--- PLAN TABLE ---");
+        List<PlanObject> planObjectList = dataSource.getAllPlanObjects();
+        for (PlanObject plan : planObjectList) {
+            Log.d("ITEM", plan.toString());
+        }
+
+        Log.d("ITEM", "--- PREP TABLE ---");
         List<PrEPObject> prEPObjectList = dataSource.getAllPrEPObjects();
+        for (PrEPObject prep : prEPObjectList) {
+            Log.d("ITEM", prep.toString());
+        }
+
+        Log.d("ITEM", "--- SCREENING TABLE ---");
+        List<ScreeningObject> screeningObjectList = dataSource.getAllScreeningObjects();
+        for (ScreeningObject sc : screeningObjectList) {
+            Log.d("ITEM", sc.toString());
+        }
+
 
 //        Vorlage
 //        ArrayAdapter<PrEPObject> shoppingMemoArrayAdapter = new ArrayAdapter<>(
@@ -88,11 +114,6 @@ public class MainActivity extends AppCompatActivity {
 //
 //        ListView shoppingMemosListView = (ListView) findViewById(R.id.listview_shopping_memos);
 //        shoppingMemosListView.setAdapter(shoppingMemoArrayAdapter);
-
-        for (PrEPObject prep : prEPObjectList) {
-            Log.d("ITEM", prep.toString());
-        }
-
     }
 
 
