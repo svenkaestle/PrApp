@@ -15,7 +15,6 @@ public class PrEPObject {
     private String timestamp;
 
     /* constructor */
-
     public PrEPObject(int id, String dateTime, String timestamp) {
         this.id = id;
         this.dateTime = dateTime;
@@ -49,7 +48,6 @@ public class PrEPObject {
 
     @Override
     public String toString() {
-        String output = "id: " + Integer.toString(id) + " | dateTime: " + dateTime + " | timestamp: " + timestamp;
-        return output;
+        return "id: " + Integer.toString(id) + " | dateTime: " + dateTime + " | timestamp: " + timestamp;
     }
 }
