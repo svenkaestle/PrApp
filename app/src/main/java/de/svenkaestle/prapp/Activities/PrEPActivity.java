@@ -35,6 +35,9 @@ public class PrEPActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pr_ep);
 
+        Log.d("PrEPActivity", "Das Datenquellen-Objekt wird angelegt.");
+        dataSource = new DataSource(this);
+
         initializeButtons();
 
 
@@ -126,8 +129,9 @@ public class PrEPActivity extends AppCompatActivity {
     }
 
     private void showDate(EditText editText, int year, int month, int day) {
-        editText.setText(new StringBuilder().append(day).append(".")
-                .append(month).append(".").append(year));
+        Formatter formatter = new Formatter(new StringBuilder(), Locale.GERMAN);
+        formatter.format("%02d.%02d.%4d", day, month, year);
+        editText.setText(formatter.toString());
     }
 
     private void showTime(EditText editText, int hour, int minute) {
@@ -137,7 +141,6 @@ public class PrEPActivity extends AppCompatActivity {
     }
 
     private void initializeButtons() {
-        dataSource = new DataSource(this);
         btnCancel = (Button) findViewById(R.id.prepNO);
         btnOk = (Button) findViewById(R.id.prepOK);
 
@@ -155,7 +158,7 @@ public class PrEPActivity extends AppCompatActivity {
                 EditText date = (EditText) findViewById(R.id.prepDatePicker);
                 EditText time = (EditText) findViewById(R.id.prepTimePicker);
 
-                dataSource.createPrEPObject(date.getText().toString(), time.getText().toString());
+                dataSource.createPrEPObject(date.getText().toString() + " " + time.getText().toString());
 
                 finish();
             }

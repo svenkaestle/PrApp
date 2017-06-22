@@ -6,8 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
 
@@ -42,10 +47,10 @@ public class DataSource {
         Log.d("DataSource", "Datenbank mit Hilfe des DbHelpers geschlossen.");
     }
 
-    public PrEPObject createPrEPObject(String date, String time) {
+    public PrEPObject createPrEPObject(String dateTime) {
         ContentValues values = new ContentValues();
-        values.put(DbHelper.COLUMN_PREP_DATETIME, date);
-        values.put(DbHelper.COLUMN_PREP_TIMESTAMP, time);
+        values.put(DbHelper.COLUMN_PREP_DATETIME, stringToDate(dateTime));
+//        values.put(DbHelper.COLUMN_PREP_TIMESTAMP, timestamp);
 
         long insertId = database.insert(DbHelper.TABLE_PREP, null, values);
 
@@ -62,14 +67,14 @@ public class DataSource {
 
     private PrEPObject cursorToPrEPObject(Cursor cursor) {
         int idIndex = cursor.getColumnIndex(DbHelper.COLUMN_PREP_ID);
-        int idDate = cursor.getColumnIndex(DbHelper.COLUMN_PREP_DATETIME);
-        int idTime = cursor.getColumnIndex(DbHelper.COLUMN_PREP_TIMESTAMP);
+        int idDateTime = cursor.getColumnIndex(DbHelper.COLUMN_PREP_DATETIME);
+        int idTimestamp = cursor.getColumnIndex(DbHelper.COLUMN_PREP_TIMESTAMP);
 
-        String date = cursor.getString(idDate);
-        String time = cursor.getString(idTime);
+        String dateTime = cursor.getString(idDateTime);
+        String timestamp = cursor.getString(idTimestamp);
         int id = cursor.getInt(idIndex);
 
-        PrEPObject prEPObject = new PrEPObject(id, date, time);
+        PrEPObject prEPObject = new PrEPObject(id, dateTime, timestamp);
 
         return prEPObject;
     }
@@ -95,7 +100,12 @@ public class DataSource {
         return prEPObjectsList;
     }
 
+    private String stringToDate(String s) {
 
+        String[] parts = s.split("\\.|\\s");
+        return  parts[2] + "-" + parts[1] + "-" + parts[0] + " " + parts[3] + ":00";
+
+    }
 
 
 }

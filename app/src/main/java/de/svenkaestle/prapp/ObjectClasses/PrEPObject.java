@@ -1,5 +1,8 @@
 package de.svenkaestle.prapp.ObjectClasses;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by ivan on 18.06.17.
  */
@@ -8,14 +11,15 @@ public class PrEPObject {
 
     /* variables */
     private int id;
-    private String date;
-    private String time;
+    private String dateTime;
+    private String timestamp;
 
     /* constructor */
-    public PrEPObject(int id, String date, String time) {
+
+    public PrEPObject(int id, String dateTime, String timestamp) {
         this.id = id;
-        this.date = date;
-        this.time = time;
+        this.dateTime = dateTime;
+        this.timestamp = timestamp;
     }
 
     /* methods */
@@ -27,25 +31,25 @@ public class PrEPObject {
         this.id = id;
     }
 
-    public String getDate() {
-        return date;
+    public String getDateTime() {
+        return dateTime;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public String getTime() {
-        return time;
+    public String getTimestamp() {
+        return timestamp;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 
     @Override
     public String toString() {
-        String output = date + " - " + time;
+        String output = "id: " + Integer.toString(id) + " | dateTime: " + dateTime + " | timestamp: " + timestamp;
         return output;
     }
 }

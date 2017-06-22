@@ -44,16 +44,8 @@ public class MainActivity extends AppCompatActivity {
         initializeStock();
         initializeBottomBar();
 
-        PrEPObject prep = new PrEPObject(1, "2/3/2012", "12:23");
-        Log.d("MainActivity", prep.toString());
-
         Log.d("MainActivity", "Das Datenquellen-Objekt wird angelegt.");
         dataSource = new DataSource(this);
-
-//        PrEPObject prEPObject = dataSource.createPrEPObject("DATE!", "TIME!2");
-
-
-
 
     } // end onCreate
 

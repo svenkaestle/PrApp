@@ -15,7 +15,7 @@ class DbHelper extends SQLiteOpenHelper {
     static final String DB_NAME = "prapp.db";
     static final int DB_VERSION =  1;
 
-    /* encounter table */
+    /* encounter table variables */
     static final String TABLE_ENCOUNTER = "encounter";
 
     static final String COLUMN_ENCOUNTER_ID = "_id_encounter";
@@ -24,7 +24,7 @@ class DbHelper extends SQLiteOpenHelper {
     static final String COLUMN_ENCOUNTER_PARTNERNAME = "partnerName";
     static final String COLUMN_ENCOUNTER_TIMESTAMP = "timestamp";
 
-    /* medication table */
+    /* medication table variables */
     static final String TABLE_MEDICATION = "medication";
 
     static final String COLUMN_MEDICATION_ID = "_id_medication";
@@ -33,7 +33,7 @@ class DbHelper extends SQLiteOpenHelper {
     static final String COLUMN_MEDICATION_SOURCE = "source";
     static final String COLUMN_MEDICATION_TIMESTAMP = "timestamp";
 
-    /* plan table */
+    /* plan table variables */
     static final String TABLE_PLAN = "plan";
 
     static final String COLUMN_PLAN_ID = "_id_plan";
@@ -42,14 +42,14 @@ class DbHelper extends SQLiteOpenHelper {
     static final String COLUMN_PLAN_DESCRIPTION = "description";
     static final String COLUMN_PLAN_TIMESTAMP = "timestamp";
 
-    /* prep table */
+    /* prep table variables */
     static final String TABLE_PREP = "prep";
 
     static final String COLUMN_PREP_ID = "_id_prep";
     static final String COLUMN_PREP_DATETIME = "dateTime";
     static final String COLUMN_PREP_TIMESTAMP = "timestamp";
 
-    /* screening table */
+    /* screening table variables */
     static final String TABLE_SCREENING = "screening";
 
     static final String COLUMN_SCREENING_ID = "_id_screening";
