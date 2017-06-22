@@ -7,6 +7,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 
 import java.util.Calendar;
+import java.util.Formatter;
+import java.util.Locale;
 
 /**
  * Created by Lukas Golombek on 6/18/17.
@@ -44,7 +46,8 @@ public class EditTextCalendar {
     }
 
     private void showDate(EditText editText, int year, int month, int day) {
-        editText.setText(new StringBuilder().append(day).append(".")
-                .append(month).append(".").append(year));
+        Formatter formatter = new Formatter(new StringBuilder(), Locale.GERMAN);
+        formatter.format("%02d.%02d.%4d", day, month, year);
+        editText.setText(formatter.toString());
     }
 }

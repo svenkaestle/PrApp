@@ -158,7 +158,7 @@ public class PrEPActivity extends AppCompatActivity {
                 EditText date = (EditText) findViewById(R.id.prepDatePicker);
                 EditText time = (EditText) findViewById(R.id.prepTimePicker);
 
-                dataSource.createPrEPObject(date.getText().toString() + " " + time.getText().toString());
+                dataSource.insertPrEPObject(date.getText().toString() + " " + time.getText().toString());
 
                 finish();
             }

@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Locale;
 
 import de.svenkaestle.prapp.Database.DataSource;
+import de.svenkaestle.prapp.ObjectClasses.EncounterObject;
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
 import de.svenkaestle.prapp.R;
 
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showAllListEntries () {
         List<PrEPObject> prEPObjectList = dataSource.getAllPrEPObjects();
+        List<EncounterObject> encounterObjectsList = dataSource.getAllEncounterObjects();
 
 //        Vorlage
 //        ArrayAdapter<PrEPObject> shoppingMemoArrayAdapter = new ArrayAdapter<>(
@@ -83,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
 
         for (PrEPObject prep : prEPObjectList) {
             Log.d("ITEM", prep.toString());
+        }
+        for (EncounterObject eo : encounterObjectsList) {
+            Log.d("ITEM", eo.toString());
         }
 
     }

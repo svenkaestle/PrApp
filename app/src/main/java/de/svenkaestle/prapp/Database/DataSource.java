@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import de.svenkaestle.prapp.ObjectClasses.EncounterObject;
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
 
 /**
@@ -24,10 +25,18 @@ public class DataSource {
 
     private SQLiteDatabase database;
     private DbHelper dbHelper;
+
     private String[] prepColumns = {
             DbHelper.COLUMN_PREP_ID,
             DbHelper.COLUMN_PREP_DATETIME,
             DbHelper.COLUMN_PREP_TIMESTAMP
+    };
+    private String[] encounterColumns = {
+            DbHelper.COLUMN_ENCOUNTER_ID,
+            DbHelper.COLUMN_ENCOUNTER_DATE,
+            DbHelper.COLUMN_ENCOUNTER_RISK,
+            DbHelper.COLUMN_ENCOUNTER_PARTNERNAME,
+            DbHelper.COLUMN_ENCOUNTER_TIMESTAMP
     };
 
 
@@ -47,10 +56,11 @@ public class DataSource {
         Log.d("DataSource", "Datenbank mit Hilfe des DbHelpers geschlossen.");
     }
 
-    public PrEPObject createPrEPObject(String dateTime) {
+    /* methods to insert data into the database */
+
+    public PrEPObject insertPrEPObject(String dateTime) {
         ContentValues values = new ContentValues();
-        values.put(DbHelper.COLUMN_PREP_DATETIME, stringToDate(dateTime));
-//        values.put(DbHelper.COLUMN_PREP_TIMESTAMP, timestamp);
+        values.put(DbHelper.COLUMN_PREP_DATETIME, stringToDateTime(dateTime));
 
         long insertId = database.insert(DbHelper.TABLE_PREP, null, values);
 
@@ -65,6 +75,34 @@ public class DataSource {
         return prEPObject;
     }
 
+    public void insertEncounterObject(String date, String risk, String partnerName) {
+        ContentValues values = new ContentValues();
+        values.put(DbHelper.COLUMN_ENCOUNTER_DATE, stringToDate(date));
+        values.put(DbHelper.COLUMN_ENCOUNTER_PARTNERNAME, partnerName);
+
+        switch (risk) {
+            case "No risk":
+                risk = "n";
+                break;
+            case "Low risk":
+                risk = "l";
+                break;
+            case "Medium risk":
+                risk = "m";
+                break;
+            case "High risk":
+                risk = "h";
+                break;
+        }
+        values.put(DbHelper.COLUMN_ENCOUNTER_RISK, risk);
+
+
+        database.insert(DbHelper.TABLE_ENCOUNTER, null, values);
+    }
+
+
+
+    /* methods to get index positions */
     private PrEPObject cursorToPrEPObject(Cursor cursor) {
 
         int idIndex = cursor.getColumnIndex(DbHelper.COLUMN_PREP_ID);
@@ -79,6 +117,25 @@ public class DataSource {
 
     }
 
+    private EncounterObject cursorToEncounterObject(Cursor cursor) {
+
+        int idIndex = cursor.getColumnIndexOrThrow(DbHelper.COLUMN_ENCOUNTER_ID);
+        int idDate = cursor.getColumnIndexOrThrow(DbHelper.COLUMN_ENCOUNTER_DATE);
+        int idRisk = cursor.getColumnIndexOrThrow(DbHelper.COLUMN_ENCOUNTER_RISK);
+        int idPartnerName = cursor.getColumnIndexOrThrow(DbHelper.COLUMN_ENCOUNTER_PARTNERNAME);
+        int idTimestamp = cursor.getColumnIndexOrThrow(DbHelper.COLUMN_ENCOUNTER_TIMESTAMP);
+
+        int id = cursor.getInt(idIndex);
+        String date = cursor.getString(idDate);
+        String risk = cursor.getString(idRisk);
+        String partnerName = cursor.getString(idPartnerName);
+        String timestamp = cursor.getString(idTimestamp);
+
+        return new EncounterObject(id, date, risk, partnerName, timestamp);
+
+    }
+
+    /* methods to read data from the database */
     public List<PrEPObject> getAllPrEPObjects() {
         List<PrEPObject> prEPObjectsList = new ArrayList<>();
 
@@ -100,10 +157,34 @@ public class DataSource {
         return prEPObjectsList;
     }
 
-    private String stringToDate(String s) {
+    public List<EncounterObject> getAllEncounterObjects() {
+        List<EncounterObject> encounterObjectsList = new ArrayList<>();
+
+        Cursor cursor = database.query(DbHelper.TABLE_ENCOUNTER,
+                encounterColumns, null, null, null, null, null);
+
+        EncounterObject encounterObject;
+        while(cursor.moveToNext()) {
+            encounterObject = cursorToEncounterObject(cursor);
+            encounterObjectsList.add(encounterObject);
+            Log.d("DataSource", "ID: " + encounterObject.getId() + ", Inhalt: " + encounterObject.toString());
+        }
+        cursor.close();
+
+        return encounterObjectsList;
+    }
+
+    private String stringToDateTime(String s) {
 
         String[] parts = s.split("\\.|\\s");
         return  parts[2] + "-" + parts[1] + "-" + parts[0] + " " + parts[3] + ":00";
+
+    }
+
+    private String stringToDate(String s) {
+
+        String[] parts = s.split("\\.|\\s");
+        return  parts[2] + "-" + parts[1] + "-" + parts[0] + " " + "00:00:00";
 
     }
 
