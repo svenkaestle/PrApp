@@ -54,7 +54,11 @@
             android:label="Contact us"
             android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activities.DayViewActivity"></activity>
+        <activity
+            android:name=".Activities.DayViewActivity"
+            android:label="Day overview"
+            android:parentActivityName=".Activities.MainActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
