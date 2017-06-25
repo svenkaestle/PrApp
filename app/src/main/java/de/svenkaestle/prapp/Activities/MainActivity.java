@@ -166,7 +166,6 @@ public class MainActivity extends AppCompatActivity {
         calendarView.setCalendarListener(new CalendarListener() {
             @Override
             public void onDateSelected(Date date) {
-                // TODO: Transition to Day view
                 startActivity(new Intent(getApplicationContext(), DayViewActivity.class));
             }
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import de.svenkaestle.prapp.ObjectClasses.DatabaseEntryObject;
 import de.svenkaestle.prapp.R;
 
 /**
@@ -13,7 +14,8 @@ import de.svenkaestle.prapp.R;
 
 public class DayViewEntryAdapter extends RecyclerView.Adapter<DayViewEntryAdapter.ViewHolder> {
 
-    private String[] mDataset;
+    // Save all list data to be split up into adapters
+    private DatabaseEntryObject entries[];
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -28,8 +30,8 @@ public class DayViewEntryAdapter extends RecyclerView.Adapter<DayViewEntryAdapte
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public DayViewEntryAdapter(String[] myDataset) {
-        mDataset = myDataset;
+    public DayViewEntryAdapter(DatabaseEntryObject[] entries) {
+        // this.entries = entries;
     }
 
     // Create new views (invoked by the layout manager)
@@ -39,6 +41,7 @@ public class DayViewEntryAdapter extends RecyclerView.Adapter<DayViewEntryAdapte
         /* create a new view
         TextView v = (TextView) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.my_text_view, parent, false);
+        // TODO: Create adapter
         // TODO: set the view's size, margins, paddings and layout parameters
         // ...
         ViewHolder vh = new ViewHolder(v);*/
@@ -50,13 +53,14 @@ public class DayViewEntryAdapter extends RecyclerView.Adapter<DayViewEntryAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.mTextView.setText(mDataset[position]);
+        // TODO: Copy entry contents into adapter
+        // holder.mTextView.setText(entries[position]);
 
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return entries.length;
     }
 }

@@ -9,32 +9,37 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import de.svenkaestle.prapp.Helper.DayViewEntryAdapter;
+import de.svenkaestle.prapp.ObjectClasses.DatabaseEntryObject;
 import de.svenkaestle.prapp.R;
 
 public class DayViewActivity extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter recyclerViewEntryAdapter;
+    private RecyclerView.LayoutManager recyclerViewLayoutManager;
+    // TODO: Check if cast to parent class breaks functionality of each specific object
+    private DatabaseEntryObject recyclerViewDataSet[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_view);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.day_view_recycler_view);
+        // TODO: Get database entries for clicked day from database
+
+        recyclerView = (RecyclerView) findViewById(R.id.day_view_recycler_view);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        recyclerViewLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(recyclerViewLayoutManager);
 
         // specify an adapter (see also next example)
-        // mAdapter = new DayViewEntryAdapter(myDataset);
-        // mRecyclerView.setAdapter(mAdapter);
+        recyclerViewEntryAdapter = new DayViewEntryAdapter(recyclerViewDataSet);
+        recyclerView.setAdapter(recyclerViewEntryAdapter);
 
     }
 

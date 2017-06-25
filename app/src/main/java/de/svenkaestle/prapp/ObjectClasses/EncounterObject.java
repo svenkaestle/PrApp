@@ -4,7 +4,7 @@ package de.svenkaestle.prapp.ObjectClasses;
  * Created by ivan on 22.06.17.
  */
 
-public class EncounterObject {
+public class EncounterObject extends DatabaseEntryObject {
 
     /* variables */
     private int id;

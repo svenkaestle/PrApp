@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by ivan on 18.06.17.
  */
 
-public class PrEPObject {
+public class PrEPObject extends DatabaseEntryObject {
 
     /* variables */
     private int id;
