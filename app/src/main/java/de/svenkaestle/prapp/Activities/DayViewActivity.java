@@ -17,8 +17,10 @@ public class DayViewActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recyclerViewEntryAdapter;
     private RecyclerView.LayoutManager recyclerViewLayoutManager;
+    
+    // Initialise array as having length 0, without touching any objects
     // TODO: Check if cast to parent class breaks functionality of each specific object
-    private DatabaseEntryObject recyclerViewDataSet[];
+    private DatabaseEntryObject[] recyclerViewDataSet = new DatabaseEntryObject[0];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
