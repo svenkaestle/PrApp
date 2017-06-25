@@ -1,13 +1,20 @@
 package de.svenkaestle.prapp.Helper;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import de.svenkaestle.prapp.ObjectClasses.DatabaseEntryObject;
+import de.svenkaestle.prapp.ObjectClasses.EncounterObject;
+import de.svenkaestle.prapp.ObjectClasses.MedicationObject;
+import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
 import de.svenkaestle.prapp.R;
 
 /**
@@ -17,7 +24,7 @@ import de.svenkaestle.prapp.R;
 public class DayViewEntryAdapter extends RecyclerView.Adapter<DayViewEntryAdapter.ViewHolder> {
 
     // Save all list data to be split up into adapters
-    private DatabaseEntryObject[] entries;
+    private ArrayList<DatabaseEntryObject> entries = new ArrayList<>();
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -33,7 +40,7 @@ public class DayViewEntryAdapter extends RecyclerView.Adapter<DayViewEntryAdapte
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public DayViewEntryAdapter(DatabaseEntryObject[] entries) {
+    public DayViewEntryAdapter(ArrayList<DatabaseEntryObject> entries) {
         this.entries = entries;
     }
 
@@ -57,13 +64,21 @@ public class DayViewEntryAdapter extends RecyclerView.Adapter<DayViewEntryAdapte
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         // TODO: Copy entry contents into adapter
-        // holder.mTextView.setText(entries[position]);
+        DatabaseEntryObject currentEntry = entries.get(position);
+
+        // Check type of current entry and depending on that, change certain aspects like colour
+        if (currentEntry instanceof EncounterObject) {
+            holder.listEntry.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
+        else if (currentEntry instanceof PrEPObject) {
+            holder.listEntry.setBackgroundColor(Color.parseColor("#0000ff"));
+        }
 
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return entries.length;
+        return entries.size();
     }
 }

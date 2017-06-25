@@ -8,8 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 import de.svenkaestle.prapp.Helper.DayViewEntryAdapter;
 import de.svenkaestle.prapp.ObjectClasses.DatabaseEntryObject;
+import de.svenkaestle.prapp.ObjectClasses.EncounterObject;
+import de.svenkaestle.prapp.ObjectClasses.MedicationObject;
+import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
 import de.svenkaestle.prapp.R;
 
 public class DayViewActivity extends AppCompatActivity {
@@ -17,10 +22,10 @@ public class DayViewActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recyclerViewEntryAdapter;
     private RecyclerView.LayoutManager recyclerViewLayoutManager;
-    
+
     // Initialise array as having length 0, without touching any objects
     // TODO: Check if cast to parent class breaks functionality of each specific object
-    private DatabaseEntryObject[] recyclerViewDataSet = new DatabaseEntryObject[0];
+    private ArrayList<DatabaseEntryObject> recyclerViewDataSet = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,8 @@ public class DayViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_day_view);
 
         // TODO: Get database entries for clicked day from database
+        recyclerViewDataSet.add(new EncounterObject(0, "23.12.2017", "Low risk", "Volker Rachow", "10:00"));
+        recyclerViewDataSet.add(new PrEPObject(1, "23.12.2017 16:00", "16:00"));
 
         recyclerView = (RecyclerView) findViewById(R.id.day_view_recycler_view);
 
