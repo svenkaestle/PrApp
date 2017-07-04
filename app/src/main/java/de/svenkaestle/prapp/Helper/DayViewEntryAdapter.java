@@ -52,7 +52,7 @@ public class DayViewEntryAdapter extends RecyclerView.Adapter<DayViewEntryAdapte
         Context context = parent.getContext();
         LayoutInflater inflater =
                 (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View listEntry = inflater.inflate(R.layout.adapter_day_view_entry, null);
+        View listEntry = inflater.inflate(R.layout.adapter_day_view_entry, parent, false);
         DayViewEntryAdapter.ViewHolder vh = new DayViewEntryAdapter.ViewHolder(listEntry);
 
         return vh;

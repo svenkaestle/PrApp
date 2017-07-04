@@ -3,4 +3,7 @@
     <dimen name="global_form_text_size">20sp</dimen>
     <dimen name="edit_text_size">20sp</dimen>
     <dimen name="global_margin">16dp</dimen>
+    <dimen name="day_view_entry_padding">10dp</dimen>
+    <dimen name="day_view_entry_margin">10dp</dimen>
+    <dimen name="day_view_elevation">2dp</dimen>
 </resources>

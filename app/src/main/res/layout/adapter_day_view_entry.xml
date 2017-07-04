@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/accept_green">
+    android:layout_height="wrap_content"
+    android:background="@color/accept_green"
+    android:layout_marginTop="@dimen/day_view_entry_margin"
+    android:layout_marginLeft="@dimen/day_view_entry_margin"
+    android:layout_marginRight="@dimen/day_view_entry_margin"
+    android:layout_marginBottom="0dp"
+    android:paddingBottom="@dimen/day_view_entry_padding"
+    android:paddingTop="@dimen/day_view_entry_padding"
+    android:paddingRight="@dimen/day_view_entry_padding"
+    android:elevation="@dimen/day_view_elevation">
 
     <TextView
         android:id="@+id/timestampTextView"
