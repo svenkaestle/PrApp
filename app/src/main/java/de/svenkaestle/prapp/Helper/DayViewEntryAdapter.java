@@ -67,12 +67,13 @@ public class DayViewEntryAdapter extends RecyclerView.Adapter<DayViewEntryAdapte
         DatabaseEntryObject currentEntry = entries.get(position);
 
         // Check type of current entry and depending on that, change certain aspects like colour
+        /*
         if (currentEntry instanceof EncounterObject) {
             holder.listEntry.setBackgroundColor(Color.parseColor("#ff0000"));
         }
         else if (currentEntry instanceof PrEPObject) {
             holder.listEntry.setBackgroundColor(Color.parseColor("#0000ff"));
-        }
+        }*/
 
     }
 
