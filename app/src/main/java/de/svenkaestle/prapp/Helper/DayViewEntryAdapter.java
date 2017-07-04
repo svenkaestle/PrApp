@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -67,13 +69,15 @@ public class DayViewEntryAdapter extends RecyclerView.Adapter<DayViewEntryAdapte
         DatabaseEntryObject currentEntry = entries.get(position);
 
         // Check type of current entry and depending on that, change certain aspects like colour
-        /*
         if (currentEntry instanceof EncounterObject) {
+            TextView timestampTextView = (TextView) holder.listEntry.findViewById(R.id.timestampTextView);
+
             holder.listEntry.setBackgroundColor(Color.parseColor("#ff0000"));
+            timestampTextView.setText(((EncounterObject) currentEntry).getTimestamp());
         }
         else if (currentEntry instanceof PrEPObject) {
             holder.listEntry.setBackgroundColor(Color.parseColor("#0000ff"));
-        }*/
+        }
 
     }
 
