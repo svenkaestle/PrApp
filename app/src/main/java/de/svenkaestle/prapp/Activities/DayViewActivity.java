@@ -14,7 +14,9 @@ import de.svenkaestle.prapp.Helper.DayViewEntryAdapter;
 import de.svenkaestle.prapp.ObjectClasses.DatabaseEntryObject;
 import de.svenkaestle.prapp.ObjectClasses.EncounterObject;
 import de.svenkaestle.prapp.ObjectClasses.MedicationObject;
+import de.svenkaestle.prapp.ObjectClasses.PlanObject;
 import de.svenkaestle.prapp.ObjectClasses.PrEPObject;
+import de.svenkaestle.prapp.ObjectClasses.ScreeningObject;
 import de.svenkaestle.prapp.R;
 
 public class DayViewActivity extends AppCompatActivity {
@@ -33,8 +35,15 @@ public class DayViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_day_view);
 
         // TODO: Get database entries for clicked day from database
+
         recyclerViewDataSet.add(new EncounterObject(0, "23.12.2017", "Low risk", "Volker Rachow", "10:00"));
-        recyclerViewDataSet.add(new PrEPObject(1, "23.12.2017 16:00", "16:00"));
+        recyclerViewDataSet.add(new PrEPObject(0, "23.12.2017 16:00", "16:00"));
+        recyclerViewDataSet.add(new MedicationObject(0, "Truvada", 22, "Santa", "23.12.2017 16:00"));
+
+        // TODO: Add start and end time to dates of plan object, add event name
+        recyclerViewDataSet.add(new PlanObject(0, "24.12.2017", "25.12.2017", "Weihnachtsfeier", "23.12.2017"));
+
+        recyclerViewDataSet.add(new ScreeningObject(0, "", "", "", "", "", "", ""));
 
         recyclerView = (RecyclerView) findViewById(R.id.day_view_recycler_view);
 

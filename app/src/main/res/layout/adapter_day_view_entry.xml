@@ -13,63 +13,35 @@
     android:elevation="@dimen/day_view_elevation">
 
     <TextView
-        android:id="@+id/timestampTextView"
+        android:id="@+id/dayViewEntryTime"
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="00:00"
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Material.Large" />
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center">
-        
+
         <TextView
+            android:id="@+id/dayViewEntryTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Encounter"
-            android:textStyle="bold"/>
+            android:text="DayViewEntry"
+            android:textStyle="bold" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/dayViewEntryDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:minLines="1"
+            android:maxLines="2"
+            android:text="Some description of the entry object"
+            android:visibility="visible"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Risk: "/>
-
-            <TextView
-                android:id="@+id/riskTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Low"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Partner name: "/>
-
-            <TextView
-                android:id="@+id/partnerNameTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Volker Rachow"/>
-
-        </LinearLayout>
-
-
-        
     </LinearLayout>
 </LinearLayout>
