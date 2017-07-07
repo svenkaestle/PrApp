@@ -1,5 +1,6 @@
 package de.svenkaestle.prapp.Activities;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,8 +8,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 import de.svenkaestle.prapp.Helper.DayViewEntryAdapter;
 import de.svenkaestle.prapp.ObjectClasses.DatabaseEntryObject;
@@ -33,6 +37,14 @@ public class DayViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_view);
+
+        Button newEntryButton = (Button) findViewById(R.id.dayViewNewEntryButton);
+        newEntryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
 
         // TODO: Get database entries for clicked day from database
 
@@ -59,6 +71,8 @@ public class DayViewActivity extends AppCompatActivity {
         recyclerViewEntryAdapter = new DayViewEntryAdapter(recyclerViewDataSet);
         recyclerView.setAdapter(recyclerViewEntryAdapter);
 
+
+
     }
 
     @Override
@@ -81,4 +95,43 @@ public class DayViewActivity extends AppCompatActivity {
                 return true;
         }
     }
+
+    private void addDayViewEntry(DatabaseEntryObject newEntryObject) {
+        recyclerViewDataSet.add(newEntryObject);
+    }
+
+    private void showDialog() {
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_dialog);
+        dialog.setTitle("Add Something.");
+
+        Button btnEncounters = (Button) dialog.findViewById(R.id.encounter);
+        btnEncounters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), EncounterActivity.class));
+                dialog.dismiss();
+            }
+        });
+
+        Button btnPlanning = (Button) dialog.findViewById(R.id.plan);
+        btnPlanning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), PlansActivity.class));
+                dialog.dismiss();
+            }
+        });
+
+        Button btnScreening = (Button) dialog.findViewById(R.id.screening);
+        btnScreening.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ScreeningActivity.class));
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    } // end showDialog
 }
